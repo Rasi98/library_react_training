@@ -1,6 +1,8 @@
-import React from "react";
-import {Col, Row, Image} from "react-bootstrap";
-import library from "../assets/images/library.jpg";
+
+import React from 'react';
+import {Col, Image, Row} from "react-bootstrap";
+import library from '../assets/images/library.jpg';
+import '../assets/styles/partials/_welcome.scss';
 
 const Welcome: React.FC = () => {
     return(

@@ -1,10 +1,12 @@
 import React from 'react';
-import "./assets/styles/main.scss";
-import Library from "./components/Library";
+import './assets/styles/main.scss';
+import Welcome from "./components/Welcome";
 
 function App() {
   return (
-    <Library />
+      <div>
+        <Welcome />
+      </div>
   );
 }
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
-import {Button} from "react-bootstrap";
+import "./assets/styles/main.scss";
+import Library from "./components/Library";
 
 function App() {
   return (
-    <Button>click me</Button>
+    <Library />
   );
 }
 

@@ -3,6 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import Welcome from "./Welcome";
 import AuthorsList from "./AuthorsList";
+import CreateAuthor from "./CreateAuthor"
 
 const Library: React.FC = () => {
     return (
@@ -19,6 +20,16 @@ const Library: React.FC = () => {
         <Col>
             <AuthorsList/>
         </Col>
+    </Row>
+    <Row>
+        <Col>
+            {/*Add Book component*/}
+        </Col>
+        <Col>
+            <CreateAuthor />
+        </Col>
+
+
     </Row>
 </Container>
     )

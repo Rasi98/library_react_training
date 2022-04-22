@@ -1,0 +1,33 @@
+//AuthorsList
+.no-author-msg{
+  font-style: italic;
+  font-weight: 200;
+}
+
+.author-list{
+  padding-left: 0;
+  list-style: none;
+}
+
+.author:hover{
+  cursor: pointer;
+  background-color: #F5F5F5;
+}
+
+//AuthorsTitle
+.author-title{
+  h2 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    border-bottom: 2px solid #2B2F32;
+    color: #2E3638;
+  }
+}
+
+//AddAuthor
+.add-author{
+  color: #282C2F;
+}
+.add-author:hover{
+  cursor: pointer;
+}

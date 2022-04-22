@@ -2,15 +2,19 @@
    display: flex;
    flex-direction: column;
    margin: 1em;
+   margin-top: 2em;
    width: 70vh;
 
    h4{
-     color: aqua; //change color
+     color: #01589D; //change color
+     border-bottom: solid 2px;
+     width: fit-content;
    }
 
    .IconClass{
      display: flex;
      justify-content: flex-end;
+     cursor: pointer;
    }
 
    .createAuthorInput {

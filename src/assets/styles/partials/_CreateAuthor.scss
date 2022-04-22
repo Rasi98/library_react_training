@@ -27,9 +27,12 @@
    .ButtonClass {
      display: flex;
      justify-content: flex-end;
+     color: white;
 
      Button {
        margin-top: 15px;
+       color: white;
+       background: #01589D;
      }
    }
   }

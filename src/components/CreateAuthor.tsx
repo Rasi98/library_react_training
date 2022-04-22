@@ -1,10 +1,16 @@
 import React from 'react';
-import {Button, Col, Row} from "react-bootstrap";
+import {Button, Col, Image, Row} from "react-bootstrap";
+import closeButton from "../assets/images/closeButton.svg";
 
 class CreateAuthor extends React.Component {
 
-    render () {
+    test() {
+        console.log("Button")
+    }
+    // @ts-ignore
+    render() {
         return (
+
             <div className={"CreateAuthor"}>
 
                 <Row>
@@ -14,30 +20,33 @@ class CreateAuthor extends React.Component {
                         </h4>
                     </Col>
                     <Col>
-                        <div className={"IconClass"}>
-                            a
+                        <div className={"IconClass"} onClick={this.test}>
+
+                            <Image src={closeButton}/>
                         </div>
+
+
                     </Col>
                 </Row>
 
 
+                <div className="createAuthorInput">
+                    <label htmlFor="formGroupExampleInput">Name of Author</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="formGroupExampleInput"
+                    />
 
-        <div className="createAuthorInput">
-            <label htmlFor="formGroupExampleInput">Name of Author</label>
-            <input
-                type="text"
-                className="form-control"
-                id="formGroupExampleInput"
-            />
-
-            <div className={"ButtonClass"} >
-                <Button>
-                    Create
-                </Button>
-            </div>
-        </div>
+                    <div className={"ButtonClass"}>
+                        <Button>
+                            Create
+                        </Button>
+                    </div>
+                </div>
             </div>
         )
+
     }
 }
 

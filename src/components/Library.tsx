@@ -2,7 +2,7 @@ import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 import Welcome from "./Welcome";
-import AuthorsList from "./AuthorsList";
+import Authors from './Authors'
 
 const Library: React.FC = () => {
     return (
@@ -13,11 +13,11 @@ const Library: React.FC = () => {
         </Col>
     </Row>
     <Row>
-        <Col>
+        <Col xs={6}>
             {/*Book List component*/}
         </Col>
-        <Col>
-            <AuthorsList/>
+        <Col xs={6}>
+            <Authors/>
         </Col>
     </Row>
 </Container>

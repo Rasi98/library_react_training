@@ -3,7 +3,8 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import Welcome from "./Welcome";
 import AuthorsList from "./AuthorsList";
-import CreateAuthor from "./CreateAuthor"
+import CreateBooksForm from "./CreateBooksForm";
+import CreateAuthor from "./CreateAuthor";
 
 const Library: React.FC = () => {
     return (
@@ -23,13 +24,11 @@ const Library: React.FC = () => {
     </Row>
     <Row>
         <Col>
-            {/*Add Book component*/}
+            <CreateBooksForm/>
         </Col>
         <Col>
-            <CreateAuthor />
+            <CreateAuthor/>
         </Col>
-
-
     </Row>
 </Container>
     )

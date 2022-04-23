@@ -1,0 +1,44 @@
+$h2-color: #2c3339;
+
+//AuthorsList
+.no-author-msg{
+  font-style: italic;
+}
+
+.author-list{
+  padding-left: 0;
+  list-style: none;
+}
+
+.author:hover{
+  background-color: #F5F5F5;
+  .icon{
+    display: inherit;
+  }
+}
+.icon{
+  width: 17px;
+  cursor: pointer;
+  display: none;
+}
+
+
+
+//AuthorsTitle
+.author-title{
+  h2 {
+    font-size: 1.7em;
+    font-weight: 500;
+    border-bottom: 2px solid $h2-color;
+    color: $h2-color;
+  }
+}
+
+//AddAuthor
+.add-author{
+  color: #282C2F;
+  font-size: 0.9em;
+}
+.add-author:hover{
+  cursor: pointer;
+}

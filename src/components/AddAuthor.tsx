@@ -1,22 +1,22 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
-import logo from "../../assets/icons/plus.svg";
+import logo from '../assets/icons/plus.svg'
 
-type BooksProps = {
-    onAddBookClick: ()=> void
+type AuthorsProps = {
+    onAddAuthorClick: ()=> void
 }
 
-const AddBook: React.FC<BooksProps> = (props) => {
+const AddAuthor:React.FC<AuthorsProps> = (props) => {
     return(
         <Container>
             <Row>
                 <Col className={'d-flex align-items-center justify-content-start'}>
                     <img className={'add'} src={logo} alt={'Add logo'}/>
-                    <label className={'add-book px-1'} onClick={props.onAddBookClick}>Add Book</label>
+                    <label className={'add-author px-1'} onClick={props.onAddAuthorClick}>Add Author</label>
                 </Col>
             </Row>
         </Container>
-    )
+    );
 }
 
-export default AddBook;
+export default AddAuthor;

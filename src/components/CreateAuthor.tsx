@@ -5,7 +5,7 @@ import closeButton from "../assets/images/closeButton.svg";
 class CreateAuthor extends React.Component {
 
     test() {
-        console.log("Button")
+        return;
     }
     // @ts-ignore
     render() {
@@ -21,7 +21,6 @@ class CreateAuthor extends React.Component {
                     </Col>
                     <Col>
                         <div className={"IconClass"} onClick={this.test}>
-
                             <Image src={closeButton}/>
                         </div>
 

@@ -1,9 +1,9 @@
  .CreateAuthor {
    display: flex;
    flex-direction: column;
-   margin: 1em;
-   margin-top: 2em;
+   margin: 2em 1em 1em;
    width: 70vh;
+   border-radius: 5px;
 
    h4{
      color: #01589D; //change color
@@ -15,6 +15,7 @@
      display: flex;
      justify-content: flex-end;
      cursor: pointer;
+     color: red;
    }
 
    .createAuthorInput {
@@ -30,9 +31,13 @@
      color: white;
 
      Button {
-       margin-top: 15px;
+       margin-top: 6px;
+       height: 35px;
        color: white;
        background: #01589D;
+       border-radius: 10px;
+       border: none;
+       width: 20%;
      }
    }
   }

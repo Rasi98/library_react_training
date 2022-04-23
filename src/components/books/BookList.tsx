@@ -18,10 +18,10 @@ const BookList:React.FC = () => {
     }
 
     return(
-        <Col xs={12} className='my-4'>
-            {books.length==0 && <label className='empty-label my-3'>No books listed here</label>}
+        <Col xs={12}>
+            {books.length===0 && <label className='empty-label py-2'>No books listed here.</label>}
 
-            <ul className='list-unstyled'>
+            <ul className='list-unstyled pt-2 pl-0'>
                 {renderBooks()}
             </ul>
         </Col>

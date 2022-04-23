@@ -18,9 +18,9 @@ const Book: React.FC<BookProps> = (props:PropsWithChildren<BookProps>) => {
             <Col xs={9}>
                 <label>{num}. {bookName}</label>
             </Col>
-            <Col xs={3} className='d-flex justify-content-end align-items-end'>
-                <Image className='me-3' src={edit}/>
-                <Image className='me-3' src={trash}/>
+            <Col xs={3} className='d-flex justify-content-end align-items-center'>
+                <Image className='icon me-2' src={edit}/>
+                <Image className='icon me-2' src={trash}/>
             </Col>
         </Row>
     )

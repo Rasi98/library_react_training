@@ -1,10 +1,11 @@
 import React from "react";
+import {Col} from "react-bootstrap";
 
 const AuthorsTitle:React.FC = () => {
     return(
-        <div className={"author-title mb-3"}>
+        <Col xs={12} className={'author-title'}>
          <h2 className={'pb-2'}>Authors</h2>
-        </div>
+        </Col>
     );
 }
 

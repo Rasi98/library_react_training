@@ -1,14 +1,21 @@
 import React from "react";
-import {Col, Image} from "react-bootstrap";
-import plus from "../../assets/images/plus.jpg";
+import {Col, Container, Row} from "react-bootstrap";
+import logo from "../../assets/icons/plus.svg";
 
-const AddBook: React.FC = () => {
+type BooksProps = {
+    onAddBookClick: ()=> void
+}
+
+const AddBook: React.FC<BooksProps> = (props) => {
     return(
-        <Col className='add-book d-flex align-items-center'>
-            <Image src={plus}/>
-            <i className='feather-plus me-1' />
-            <label>Add Book</label>
-        </Col>
+        <Container>
+            <Row>
+                <Col className={'d-flex align-items-center justify-content-start'}>
+                    <img className={'add'} src={logo} alt={'Add logo'}/>
+                    <label className={'add-book px-1'} onClick={props.onAddBookClick}>Add Book</label>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

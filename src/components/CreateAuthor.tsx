@@ -1,30 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Col, Image, Row} from "react-bootstrap";
 import closeButton from "../assets/images/closeButton.svg";
 
-class CreateAuthor extends React.Component {
+type CreateAuthorProps = {
+    onCloseButtonClick: ()=> void
+}
 
-    test() {
-        return;
-    }
-    // @ts-ignore
-    render() {
+const CreateAuthor: React.FC <CreateAuthorProps>= (props) => {
+
+    const [authorName,setAuthorName] = useState(undefined);
+
+
+
         return (
-
             <div className={"CreateAuthor"}>
 
                 <Row>
-                    <Col>
+                    <Col xs={10}>
                         <h4 className={'title'}>
                             Create Author
                         </h4>
                     </Col>
-                    <Col>
-                        <div className={"IconClass"} onClick={this.test}>
-                            <Image src={closeButton}/>
+                    <Col xs={2}>
+                        <div className={"IconClass"}>
+                            <Image src={closeButton} onClick={props.onCloseButtonClick}/>
                         </div>
-
-
                     </Col>
                 </Row>
 
@@ -35,6 +35,7 @@ class CreateAuthor extends React.Component {
                         type="text"
                         className="form-control"
                         id="formGroupExampleInput"
+                        value={authorName}
                     />
 
                     <div className={"ButtonClass"}>
@@ -45,8 +46,6 @@ class CreateAuthor extends React.Component {
                 </div>
             </div>
         )
-
-    }
 }
 
 export default CreateAuthor

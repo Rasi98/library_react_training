@@ -2,7 +2,11 @@ import React from "react";
 import {Button, Col, Image, Row} from "react-bootstrap";
 import closeButton from "../assets/images/closeButton.svg";
 
-const CreateBooksForm: React.FC = () => {
+type CreateBooksProps={
+    onCloseButtonClick: ()=>void
+}
+
+const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
     // const [bookTitle, setBookTitle] = useState("");
     // const [isbn, setIsbn]
     // const [bookAuthor, setBookAuthor] = useState("");
@@ -17,7 +21,7 @@ const CreateBooksForm: React.FC = () => {
                 </Col>
                 <Col>
                     <div className={"IconClass"}>
-                        <Image src={closeButton}/>
+                        <Image src={closeButton} onClick={props.onCloseButtonClick}/>
                     </div>
 
 

@@ -2,9 +2,7 @@ import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 import Welcome from "./Welcome";
-import AuthorsList from "./AuthorsList";
-import CreateBooksForm from "./CreateBooksForm";
-import CreateAuthor from "./CreateAuthor";
+import Authors from './Authors'
 import Books from "./books/Books";
 
 const Library: React.FC = () => {
@@ -15,22 +13,15 @@ const Library: React.FC = () => {
             <Welcome />
         </Col>
     </Row>
-    <Row>
+    <Row className={'d-flex flex-wrap-wrap'}>
         <Col>
             <Books />
         </Col>
         <Col>
-            <AuthorsList/>
+            <Authors/>
         </Col>
     </Row>
-    <Row>
-        <Col>
-            <CreateBooksForm/>
-        </Col>
-        <Col>
-            <CreateAuthor/>
-        </Col>
-    </Row>
+
 </Container>
     )
 }

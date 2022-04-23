@@ -15,7 +15,7 @@ class CreateAuthor extends React.Component {
 
                 <Row>
                     <Col>
-                        <h4>
+                        <h4 className={'title'}>
                             Create Author
                         </h4>
                     </Col>
@@ -30,7 +30,7 @@ class CreateAuthor extends React.Component {
 
 
                 <div className="createAuthorInput">
-                    <label htmlFor="formGroupExampleInput">Name of Author</label>
+                    <label className={'input-label'} htmlFor="formGroupExampleInput">Name of Author</label>
                     <input
                         type="text"
                         className="form-control"

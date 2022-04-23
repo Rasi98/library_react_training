@@ -5,6 +5,7 @@ import Welcome from "./Welcome";
 import AuthorsList from "./AuthorsList";
 import CreateBooksForm from "./CreateBooksForm";
 import CreateAuthor from "./CreateAuthor";
+import Books from "./books/Books";
 
 const Library: React.FC = () => {
     return (
@@ -16,7 +17,7 @@ const Library: React.FC = () => {
     </Row>
     <Row>
         <Col>
-            {/*Book List component*/}
+            <Books />
         </Col>
         <Col>
             <AuthorsList/>

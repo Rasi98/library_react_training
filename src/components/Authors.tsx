@@ -5,10 +5,16 @@ import CreateAuthor from './CreateAuthor';
 import AuthorsList from './AuthorsList';
 import AuthorsTitle from './AuthorsTitle';
 import AddAuthor from './AddAuthor';
+import {IAuthor} from "../views/author";
 
-const Authors:React.FC = () =>{
+type authorsProps= {
+    AuthorsList: IAuthor[]
+}
+
+const Authors:React.FC <authorsProps>= (props) =>{
     const[isFormVisible,setisFormVisible]=useState(false)
-    
+
+
     const handleAddAuthor = () => {
       setisFormVisible(true);
     }
@@ -19,9 +25,12 @@ const Authors:React.FC = () =>{
     return(
         <Row className={'author-section mx-3 my-2'}>
             <AuthorsTitle/>
-            <AuthorsList/>
+            <AuthorsList authors={props.AuthorsList}/>
             <AddAuthor onAddAuthorClick={handleAddAuthor}/>
-            {isFormVisible && <CreateAuthor onCloseButtonClick={handleCloseAuthor}/>}
+            {isFormVisible &&
+                <CreateAuthor
+                    onCloseButtonClick={handleCloseAuthor}
+                />}
         </Row>
     );
 }

@@ -8,8 +8,7 @@ type CreateAuthorProps = {
 
 const CreateAuthor: React.FC <CreateAuthorProps>= (props) => {
 
-    const [authorName,setAuthorName] = useState(undefined);
-
+    const [authorName,setAuthorName] = useState<string>();
 
 
         return (
@@ -36,6 +35,7 @@ const CreateAuthor: React.FC <CreateAuthorProps>= (props) => {
                         className="form-control"
                         id="formGroupExampleInput"
                         value={authorName}
+                        onChange={(e) => {setAuthorName(e.target.value)}}
                     />
 
                     <div className={"ButtonClass"}>

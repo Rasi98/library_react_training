@@ -1,16 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 import Welcome from "./Welcome";
 import Authors from './Authors'
 import Books from "./books/Books";
-import {IAuthor} from "../views/author";
 
 
 
 const Library: React.FC = () => {
-    const authorlist: IAuthor[] = [{name:'lakshan'},{name:'semini'},{name:'sahani'},{name:'Thevindu'}];
-    const[authors,setAuthors]=useState(authorlist)
 
     return (
         <Container fluid={true}>
@@ -24,7 +21,7 @@ const Library: React.FC = () => {
                     <Books />
                 </Col>
                 <Col>
-                    <Authors AuthorsList={authors}/>
+                    <Authors/>
                 </Col>
             </Row>
         </Container>

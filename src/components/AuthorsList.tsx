@@ -5,6 +5,7 @@ import {IAuthor} from "../views/author";
 
 type authorListProps = {
     allauthors:IAuthor[]| null
+    DeleteAuthor: (index:number) => void
 }
 
 const AuthorsList: React.FC <authorListProps> = (props) => {
@@ -16,7 +17,7 @@ const AuthorsList: React.FC <authorListProps> = (props) => {
             return;
         }
         return  allauthors.map((author:IAuthor,index:number) =>
-            <li className={'author py-2'} key={index}><Author num={index+1} authorName={author}/></li>);
+            <li className={'author py-2'} key={index}><Author DeleteAuthor={props.DeleteAuthor} num={index+1} authorName={author}/></li>);
     }
 
 

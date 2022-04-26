@@ -7,8 +7,11 @@ import {IAuthor} from "../views/author";
 type authorProps = {
     num: number;
     authorName: IAuthor;
+    DeleteAuthor:(index:number)=>void
 }
 const Author:React.FC<authorProps> = (props) => {
+
+
     return(
         <Row>
             <Col xs={9}>
@@ -16,7 +19,8 @@ const Author:React.FC<authorProps> = (props) => {
             </Col>
             <Col xs={3} className='d-flex justify-content-end align-items-center'>
                 <img className='icon me-2' src={Edit} alt={'editIcon'}/>
-                <img className='icon me-2' src={Delete} alt={'deleteIcon'}/>
+                <img className='icon me-2' src={Delete} alt={'deleteIcon'}
+                     onClick={() => props.DeleteAuthor(props.num-1)}/>
             </Col>
         </Row>
     );

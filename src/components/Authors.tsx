@@ -33,11 +33,21 @@ const Authors:React.FC = () =>{
         setauthors(newauthors)
     }
 
+    const handleDeleteAuthor = (index:number) => {
+        console.log("Delete author index:",index)
+        if(!authors){
+            return
+        }
+        const allauthorlist: IAuthor[] = authors.slice();
+        allauthorlist.splice(index,1);
+        setauthors(allauthorlist);
+    }
+
     
     return(
         <Row className={'author-section mx-3 my-2'}>
             <AuthorsTitle/>
-            <AuthorsList allauthors={authors}/>
+            <AuthorsList allauthors={authors} DeleteAuthor={handleDeleteAuthor}/>
             <AddAuthor onAddAuthorClick={handleAddAuthorform}/>
             {isFormVisible &&
                 <CreateAuthor

@@ -1,3 +1,3 @@
 export interface IAuthor{
-    name:string | undefined
+    name:string
 }

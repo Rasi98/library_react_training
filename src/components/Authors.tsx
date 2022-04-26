@@ -7,29 +7,42 @@ import AuthorsTitle from './AuthorsTitle';
 import AddAuthor from './AddAuthor';
 import {IAuthor} from "../views/author";
 
-type authorsProps= {
-    AuthorsList: IAuthor[]
-}
 
-const Authors:React.FC <authorsProps>= (props) =>{
+const Authors:React.FC = () =>{
     const[isFormVisible,setisFormVisible]=useState(false)
+    const[authors,setauthors]=useState<IAuthor[] | null>(null)
 
 
-    const handleAddAuthor = () => {
+    const handleAddAuthorform = () => {
       setisFormVisible(true);
     }
-    const handleCloseAuthor = () => {
+
+    const handleCloseAuthorform = () => {
         setisFormVisible(false);
     }
+
+    const handleAddAuthor = (author: string) => {
+        if (!author){
+            return;
+        }
+        const newauthor={
+            name:author
+        }
+        const newauthors: IAuthor[] = authors ? authors.slice() : []
+        newauthors.push(newauthor)
+        setauthors(newauthors)
+    }
+
     
     return(
         <Row className={'author-section mx-3 my-2'}>
             <AuthorsTitle/>
-            <AuthorsList authors={props.AuthorsList}/>
-            <AddAuthor onAddAuthorClick={handleAddAuthor}/>
+            <AuthorsList allauthors={authors}/>
+            <AddAuthor onAddAuthorClick={handleAddAuthorform}/>
             {isFormVisible &&
                 <CreateAuthor
-                    onCloseButtonClick={handleCloseAuthor}
+                    onCloseButtonClick={handleCloseAuthorform}
+                    handleAddAuthor={handleAddAuthor}
                 />}
         </Row>
     );

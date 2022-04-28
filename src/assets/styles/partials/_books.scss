@@ -1,0 +1,40 @@
+$h2-color: #2c3339;
+$hover-color: #f5f5f5;
+$click-me: #86A5D4;
+
+.book-section{
+  h2{
+      font-size: 1.7em;
+      font-weight: 500;
+      color: $h2-color;
+      border-bottom: 2px solid $h2-color;
+  }
+
+  .empty-label{
+    font-style: italic;
+  }
+
+  .book{
+    &:hover{
+      background-color: $hover-color;
+      .icon{
+        display: inherit;
+      }
+    }
+
+    .icon{
+      width: 17px;
+      cursor: pointer;
+      display: none;
+    }
+
+  }
+
+  .add-book{
+    color: #282C2F;
+    font-size: 0.9em;
+  }
+  .add-book:hover{
+    cursor: pointer;
+  }
+}

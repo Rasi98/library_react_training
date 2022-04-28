@@ -1,0 +1,71 @@
+.createBooksSection{
+  //height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2em 1em 1em;
+  width: 70vh;
+  //border-radius: 5px;
+}
+
+.booksForm{
+  //display: flex;
+  //flex-direction: column;
+  //margin: 20px 90px 0 45.5px;
+  height: 80%;
+  //width: 60%;
+  margin-left: 3em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.IconClass{
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  color: red;
+}
+
+.form-control{
+  margin-bottom: 15px;
+  height: 35px;
+  width: 100%;
+  border: 2px solid #dedede;
+}
+
+.input-label{
+  margin-bottom: 3px;
+  margin-left: 4px;
+  font-size: small;
+}
+
+.title{
+  color: #08483A;
+  text-decoration: underline;
+}
+
+.button{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.submit-btn{
+  background: #01589D;
+  color: white;
+  border: none;
+  width: 20%;
+  height: 35px;
+  margin-top: 3px;
+  border-radius: 10px;
+
+}
+
+.errormsg {
+  color: red;
+  font-style: italic;
+  padding-top: 0;
+  font-size: 0.8em;
+}

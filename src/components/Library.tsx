@@ -9,7 +9,7 @@ import {IAuthor} from "../views/author";
 
 
 const Library: React.FC = () => {
-    const[authors,setauthors]=useState<IAuthor[] | null>(null)
+    const[authors,setauthors]=useState<IAuthor[] | null>(null);
 
     const handleAddAuthor = (author: string) => {
         if (!author){
@@ -21,6 +21,15 @@ const Library: React.FC = () => {
         const newauthors: IAuthor[] = authors ? authors.slice() : []
         newauthors.push(newauthor)
         setauthors(newauthors)
+    }
+
+    const handleDeleteAuthor = (index:number) => {
+        if(!authors){
+            return
+        }
+        const newauthorlist: IAuthor[] = authors.slice();
+        newauthorlist.splice(index,1);
+        setauthors(newauthorlist);
     }
 
     return (
@@ -35,7 +44,8 @@ const Library: React.FC = () => {
                     <Books authors = {authors}/>
                 </Col>
                 <Col>
-                    <Authors handleAddAuthor = {handleAddAuthor} authors = {authors}/>
+                    <Authors handleAddAuthor = {handleAddAuthor} authors = {authors}
+                             handleDeleteAuthor={handleDeleteAuthor}/>
                 </Col>
             </Row>
         </Container>

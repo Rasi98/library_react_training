@@ -12,6 +12,11 @@ type authorProps = {
 const Author:React.FC<authorProps> = (props) => {
 
 
+
+    const[isDeleteConfMsgVisible, setIsDeleteConfMsgVisible] = useState(false)
+    const handleDeleteButton = () => setIsDeleteConfMsgVisible(true);
+
+
     return(
         <Row>
             <Col xs={9}>
@@ -21,6 +26,11 @@ const Author:React.FC<authorProps> = (props) => {
                 <img className='icon me-2' src={Edit} alt={'editIcon'}/>
                 <img className='icon me-2' src={Delete} alt={'deleteIcon'}
                      onClick={() => props.DeleteAuthor(props.num-1)}/>
+                <div>
+                <img className='icon me-2' src={Delete} alt={'deleteIcon'} onClick={handleDeleteButton}/>
+                {isDeleteConfMsgVisible && <DeleteConfirmation name={"author"}/>}
+                </div>
+
             </Col>
         </Row>
     );

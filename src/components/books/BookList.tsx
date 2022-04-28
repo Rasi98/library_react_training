@@ -1,25 +1,27 @@
-import React, {useState} from "react";
+import React from "react";
 import {Col} from "react-bootstrap";
 import Book from "./Book";
-import {IBook} from "../../types/LibraryTypes";
+import {IBook} from "../../views/Books";
 
-const BookList:React.FC = () => {
-    const initBooks: IBook[] = [
-        {name: 'Harry Potter'},
-        {name: 'Lolita'},
-        {name: 'Jane eyre'}
-    ];
+type bookListProps = {
+    allBooks:IBook[]| null
+}
 
-    const [books]= useState(initBooks);
+const BookList:React.FC <bookListProps> = (props) => {
+
+    const {allBooks} = props
 
     const renderBooks = () => {
-        return books.map((book:IBook, index:number)=>
-            <li className='book py-2' key={index}><Book num={index+1} bookName={book.name}/></li>);
+        if(!allBooks){
+            return;
+        }
+        return allBooks.map((book:IBook, index:number)=>
+            <li className='book py-2' key={index}><Book num={index+1} bookName={book.title}/></li>);
     }
 
     return(
         <Col xs={12}>
-            {books.length===0 && <label className='empty-label py-2'>No books listed here.</label>}
+            {(!allBooks || allBooks.length===0) && <label className='empty-label py-2'>No books listed here.</label>}
 
             <ul className='list-unstyled pt-2 pl-0'>
                 {renderBooks()}

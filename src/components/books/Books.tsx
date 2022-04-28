@@ -3,24 +3,48 @@ import {Row} from "react-bootstrap";
 import BookTitle from "./BookTitle";
 import BookList from "./BookList";
 import AddBook from "./AddBook";
-import CreateBookFrom from '../CreateBooksForm';
+import CreateBookForm from '../CreateBooksForm';
+import {IBook} from "../../views/Books"
+import {IAuthor} from "../../views/author";
 
-const Books: React.FC = () => {
+type booksProps = {
+    authors: IAuthor[] | null;
+}
+
+const Books: React.FC<booksProps> = (props) => {
     const[isFormVisible,setisFormVisible]=useState(false)
+    const[books,setBooks]=useState<IBook[] | null>(null)
 
-    const handleAddBook = () => {
+    const handleAddBookForm = () => {
         setisFormVisible(true);
     }
     const handleCloseBook = () => {
         setisFormVisible(false);
     }
 
+    const handleAddBook = (book: string, isbn: string, author: string) => {
+        if (!book || !isbn || !author){
+            return;
+        }
+        const newBook={
+            title:book,
+            isbn: isbn,
+            author: author
+        }
+        const newBooks: IBook[] = books ? books.slice() : []
+        newBooks.push(newBook)
+        setBooks(newBooks)
+    }
+
     return(
         <Row className='book-section mx-3 my-2'>
             <BookTitle />
-            <BookList/>
-            <AddBook onAddBookClick={handleAddBook}/>
-            {isFormVisible && <CreateBookFrom onCloseButtonClick={handleCloseBook}/>}
+            <BookList allBooks={books}/>
+            <AddBook onAddBookClick={handleAddBookForm}/>
+            {isFormVisible && <CreateBookForm onCloseButtonClick={handleCloseBook}
+                                              handleAddBooks={handleAddBook}
+                                              authors = {props.authors}
+            />}
 
         </Row>
     )

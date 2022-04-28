@@ -10,6 +10,7 @@ import {IAuthor} from "../views/author";
 type authorsProps = {
     handleAddAuthor: (author: string) => void
     authors: IAuthor[] | null;
+    handleDeleteAuthor: (index:number) => void
 }
 
 const Authors:React.FC<authorsProps> = (props) =>{
@@ -26,7 +27,7 @@ const Authors:React.FC<authorsProps> = (props) =>{
     return(
         <Row className={'author-section mx-3 my-2'}>
             <AuthorsTitle/>
-            <AuthorsList allauthors={props.authors}/>
+            <AuthorsList allauthors={props.authors} DeleteAuthor={props.handleDeleteAuthor}/>
             <AddAuthor onAddAuthorClick={handleAddAuthorform}/>
             {isFormVisible &&
                 <CreateAuthor

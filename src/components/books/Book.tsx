@@ -2,7 +2,7 @@ import React, {PropsWithChildren, useState} from "react";
 import {Col, Row, Image} from "react-bootstrap";
 import edit from "../../assets/images/edit.jpg";
 import trash from "../../assets/images/trash.jpg";
-import {DeleteConfirmation} from "../DeleteConfirmation";
+import DeleteConfirmation from "../DeleteConfirmation";
 
 
 type BookProps = {
@@ -25,7 +25,7 @@ const Book: React.FC<BookProps> = (props:PropsWithChildren<BookProps>) => {
             <Col xs={3} className='d-flex justify-content-end align-items-center'>
                 <Image className='icon me-2' src={edit}/>
                 <Image className='icon me-2' src={trash} onClick={handleDeleteButton}/>
-                {isDeleteConfMsgVisible && <DeleteConfirmation name={"book"}/>}
+                {/*{isDeleteConfMsgVisible && <DeleteConfirmation/>}*/}
             </Col>
         </Row>
     )

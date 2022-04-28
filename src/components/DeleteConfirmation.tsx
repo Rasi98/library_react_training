@@ -1,32 +1,38 @@
-import React, {useState} from "react"
+import React from "react"
 import {Modal, Button} from "react-bootstrap";
 
+type DeleteconfProps = {
+    num: number
+    DeleteAuthor?: (index:number) => void
+    setIsDeleteConfMsgVisible: (visible:boolean) => void
+    isDeleteConfMsgVisible: boolean
+    //Add delete book function here
+}
 
+const DeleteConfirmation:React.FC<DeleteconfProps> = (props) => {
 
-
-
-export function DeleteConfirmation (props: any) {
-    const [isDeleteConfShow, setDeleteConfShow] = useState(true)
-
-    const handleDelete = () => {
-        alert("Deleted") //Add delete function
-        setDeleteConfShow(true)
+    const handleDelete = (index:number) => {
+        if(!props.DeleteAuthor){
+            return
+        }
+        props.DeleteAuthor(index-1)
+        props.setIsDeleteConfMsgVisible(false)
     }
-    const handleClose = () => setDeleteConfShow(false)
+
 
 
     return (
 
-        <Modal show={isDeleteConfShow} onHide={handleClose}>
+        <Modal show={props.isDeleteConfMsgVisible} onHide={() => props.setIsDeleteConfMsgVisible(false)}>
             <Modal.Header closeButton>
                 <Modal.Title>Delete Confirmation</Modal.Title>
             </Modal.Header>
-            <Modal.Body>Do you want to delete this {props.name}?</Modal.Body>
+            <Modal.Body>Are you sure want to delete this?</Modal.Body>
             <Modal.Footer>
-                <Button variant={"secondary"} onClick={handleClose}>
+                <Button variant={"secondary"} onClick={() => props.setIsDeleteConfMsgVisible(false)}>
                     Close
                 </Button>
-                <Button variant={"danger"} onClick={handleDelete}>
+                <Button variant={"danger"} onClick={()=>handleDelete(props.num)}>
                     Delete
                 </Button>
             </Modal.Footer>
@@ -37,5 +43,6 @@ export function DeleteConfirmation (props: any) {
 
 }
 
+export default DeleteConfirmation;
 
 

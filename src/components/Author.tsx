@@ -26,6 +26,7 @@ const Author:React.FC<authorProps> = (props) => {
                 {isDeleteConfMsgVisible &&
                     <DeleteConfirmation
                         num={props.num}
+                        type={'author'}
                         DeleteAuthor={props.DeleteAuthor}
                         setIsDeleteConfMsgVisible={setIsDeleteConfMsgVisible}
                         isDeleteConfMsgVisible={isDeleteConfMsgVisible}

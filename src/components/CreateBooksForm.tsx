@@ -23,7 +23,6 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
         props.handleAddBooks(bookTitle, isbn, bookAuthor)
         setBookTitle('')
         setIsbn('')
-        setBookAuthor('')
     }
 
 
@@ -67,13 +66,14 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                 <label className='input-label'>Author of the book
                 </label>
                 <select className='form-control'
-                        // value={bookAuthor}
+                        id={'dropdown'}
                         onChange={(e) => {setBookAuthor(e.target.value)}}
                         onFocus={() =>seterrormsgvisible(false)}
                 >
-                    <option value='' disabled selected hidden> </option>
+                    <option value='' disabled selected hidden>{props.authors ? 'Choose here...' : 'No Authors'}</option>
                     {props.authors ? props.authors.map((author:IAuthor) =>
-                        <option value={author.name}>{author.name}</option>): <option value='' disabled> No Authors </option>}
+                        <option value={author.name}>{author.name}</option>):
+                        <option value='' disabled> No Authors </option>}
                 </select>
                 {errormsgvisible && <label className={'errormsg'}>All fields are required!</label>}
                 <div className="button">

@@ -5,6 +5,7 @@ import {IBook} from "../../views/Books";
 
 type bookListProps = {
     allBooks:IBook[]| null
+    handleDeleteBook: (index:number) => void
 }
 
 const BookList:React.FC <bookListProps> = (props) => {
@@ -16,7 +17,7 @@ const BookList:React.FC <bookListProps> = (props) => {
             return;
         }
         return allBooks.map((book:IBook, index:number)=>
-            <li className='book py-2' key={index}><Book num={index+1} bookName={book.title}/></li>);
+            <li className='book py-2' key={index}><Book num={index+1} handleDeleteBook={props.handleDeleteBook} bookName={book.title}/></li>);
     }
 
     return(

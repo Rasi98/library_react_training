@@ -1,19 +1,19 @@
 import React, {PropsWithChildren, useState} from "react";
 import {Col, Row, Image} from "react-bootstrap";
-import edit from "../../assets/images/edit.jpg";
-import trash from "../../assets/images/trash.jpg";
+import edit from "../../assets/icons/edit.svg";
+import trash from "../../assets/icons/trash-2.svg";
 import DeleteConfirmation from "../DeleteConfirmation";
 
 
 type BookProps = {
     num: number
     bookName:string
+    handleDeleteBook: (index:number) => void
 }
 
 const Book: React.FC<BookProps> = (props:PropsWithChildren<BookProps>) => {
 
     const[isDeleteConfMsgVisible, setIsDeleteConfMsgVisible] = useState(false)
-    const handleDeleteButton = () => setIsDeleteConfMsgVisible(true);
 
     const {num, bookName}=props;
 
@@ -24,8 +24,14 @@ const Book: React.FC<BookProps> = (props:PropsWithChildren<BookProps>) => {
             </Col>
             <Col xs={3} className='d-flex justify-content-end align-items-center'>
                 <Image className='icon me-2' src={edit}/>
-                <Image className='icon me-2' src={trash} onClick={handleDeleteButton}/>
-                {/*{isDeleteConfMsgVisible && <DeleteConfirmation/>}*/}
+                <Image className='icon me-2' src={trash} onClick={()=>setIsDeleteConfMsgVisible(true)}/>
+                {isDeleteConfMsgVisible && <DeleteConfirmation
+                    num={props.num}
+                    type={'book'}
+                    isDeleteConfMsgVisible={isDeleteConfMsgVisible}
+                    setIsDeleteConfMsgVisible={setIsDeleteConfMsgVisible}
+                    handleDeleteBook={props.handleDeleteBook}/>
+                }
             </Col>
         </Row>
     )

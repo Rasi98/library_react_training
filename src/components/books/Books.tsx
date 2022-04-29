@@ -36,10 +36,19 @@ const Books: React.FC<booksProps> = (props) => {
         setBooks(newBooks)
     }
 
+    const handleDeleteBook = (index:number) => {
+        if(!books){
+            return;
+        }
+        const newbooklist: IBook[] = books.slice();
+        newbooklist.splice(index,1)
+        setBooks(newbooklist)
+    }
+
     return(
         <Row className='book-section mx-3 my-2'>
             <BookTitle />
-            <BookList allBooks={books}/>
+            <BookList allBooks={books} handleDeleteBook={handleDeleteBook}/>
             <AddBook onAddBookClick={handleAddBookForm}/>
             {isFormVisible && <CreateBookForm onCloseButtonClick={handleCloseBook}
                                               handleAddBooks={handleAddBook}

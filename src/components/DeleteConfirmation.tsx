@@ -6,17 +6,27 @@ type DeleteconfProps = {
     DeleteAuthor?: (index:number) => void
     setIsDeleteConfMsgVisible: (visible:boolean) => void
     isDeleteConfMsgVisible: boolean
-    //Add delete book function here
+    handleDeleteBook?: (index:number) => void
+    type: string
 }
 
 const DeleteConfirmation:React.FC<DeleteconfProps> = (props) => {
 
     const handleDelete = (index:number) => {
-        if(!props.DeleteAuthor){
-            return
+        if(props.type==='author') {
+            if (!props.DeleteAuthor) {
+                return
+            }
+            props.DeleteAuthor(index - 1)
+            props.setIsDeleteConfMsgVisible(false)
         }
-        props.DeleteAuthor(index-1)
-        props.setIsDeleteConfMsgVisible(false)
+        else if(props.type==='book'){
+            if(!props.handleDeleteBook){
+                return;
+            }
+            props.handleDeleteBook(index-1)
+            props.setIsDeleteConfMsgVisible(false)
+        }
     }
 
 

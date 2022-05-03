@@ -4,7 +4,7 @@ $click-me: #86A5D4;
 
 .book-section{
   h2{
-      font-size: 1.7em;
+      font-size: 200%;
       font-weight: 500;
       color: $h2-color;
       border-bottom: 2px solid $h2-color;
@@ -23,18 +23,26 @@ $click-me: #86A5D4;
     }
 
     .icon{
-      width: 17px;
+      width: 20px;
       cursor: pointer;
       display: none;
     }
 
   }
 
+  .list-name{
+    font-size: 120%;
+  }
+
   .add-book{
     color: #282C2F;
-    font-size: 0.9em;
+    font-size: 1em;
+    font-weight: 700;
   }
   .add-book:hover{
+    cursor: pointer;
+  }
+  .add-book-icon:hover{
     cursor: pointer;
   }
 }

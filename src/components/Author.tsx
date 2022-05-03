@@ -17,12 +17,11 @@ const Author:React.FC<authorProps> = (props) => {
     return(
         <Row>
             <Col xs={9}>
-                <label>{props.num}. {props.authorName.name}</label>
+                <label className={'list-name'}>{props.num}. {props.authorName.name}</label>
             </Col>
             <Col xs={3} className='d-flex justify-content-end align-items-center'>
-                <img className='icon me-2' src={Edit} alt={'editIcon'}/>
-                <div>
-                <img className='icon me-2' src={Delete} alt={'deleteIcon'} onClick={() => setIsDeleteConfMsgVisible(true)}/>
+                <img className='icon me-3' src={Edit} alt={'editIcon'}/>
+                <img className='icon me-3' src={Delete} alt={'deleteIcon'} onClick={() => setIsDeleteConfMsgVisible(true)}/>
                 {isDeleteConfMsgVisible &&
                     <DeleteConfirmation
                         num={props.num}
@@ -31,8 +30,6 @@ const Author:React.FC<authorProps> = (props) => {
                         setIsDeleteConfMsgVisible={setIsDeleteConfMsgVisible}
                         isDeleteConfMsgVisible={isDeleteConfMsgVisible}
                     />}
-                </div>
-
             </Col>
         </Row>
     );

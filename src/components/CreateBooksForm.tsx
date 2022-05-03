@@ -30,9 +30,9 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
         <div className={'createBooksSection'}>
             <Row>
                 <Col>
-                    <h4 className={'title'}>
+                    <h3 className={'title'}>
                         Create Book
-                    </h4>
+                    </h3>
                 </Col>
                 <Col>
                     <div className={"IconClass"}>
@@ -76,7 +76,7 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                         <option value='' disabled> No Authors </option>}
                 </select>
                 {errormsgvisible && <label className={'errormsg'}>All fields are required!</label>}
-                <div className="button">
+                <div className="button mt-3">
                     <Button type="submit" className={'submit-btn'} onClick={handlesubmit}>Create</Button>
                 </div>
             </form>

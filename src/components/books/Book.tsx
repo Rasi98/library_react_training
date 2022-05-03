@@ -20,11 +20,11 @@ const Book: React.FC<BookProps> = (props:PropsWithChildren<BookProps>) => {
     return(
         <Row>
             <Col xs={9}>
-                <label>{num}. {bookName}</label>
+                <label className={'list-name'}>{num}. {bookName}</label>
             </Col>
             <Col xs={3} className='d-flex justify-content-end align-items-center'>
-                <Image className='icon me-2' src={edit}/>
-                <Image className='icon me-2' src={trash} onClick={()=>setIsDeleteConfMsgVisible(true)}/>
+                <Image className='icon me-3' src={edit}/>
+                <Image className='icon me-3' src={trash} onClick={()=>setIsDeleteConfMsgVisible(true)}/>
                 {isDeleteConfMsgVisible && <DeleteConfirmation
                     num={props.num}
                     type={'book'}

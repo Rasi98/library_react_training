@@ -26,9 +26,9 @@ const CreateAuthor: React.FC <CreateAuthorProps>= (props) => {
 
                 <Row>
                     <Col xs={10}>
-                        <h4 className={'title'}>
+                        <h3 className={'title'}>
                             Create Author
-                        </h4>
+                        </h3>
                     </Col>
                     <Col xs={2}>
                         <div className={"IconClass"}>
@@ -49,7 +49,7 @@ const CreateAuthor: React.FC <CreateAuthorProps>= (props) => {
                         />
                         {errormsgvisible && <label className={'errormsg'}>This field is required!</label>}
 
-                        <div className={"ButtonClass"}>
+                        <div className={"ButtonClass mt-4"}>
                             <Button onClick={handlesubmit}>
                                 Create
                             </Button>

@@ -22,9 +22,9 @@ const BookList:React.FC <bookListProps> = (props) => {
 
     return(
         <Col xs={12}>
-            {(!allBooks || allBooks.length===0) && <label className='empty-label py-2'>No books listed here.</label>}
+            {(!allBooks || allBooks.length===0) && <label className='empty-label pt-3'>No books listed here.</label>}
 
-            <ul className='list-unstyled pt-2 pl-0'>
+            <ul className='list-unstyled mt-3 pl-0'>
                 {renderBooks()}
             </ul>
         </Col>

@@ -1,7 +1,7 @@
  .CreateAuthor {
    display: flex;
    flex-direction: column;
-   margin: 2em 1em 1em;
+   margin: 4em 1em 1em;
    width: 70vh;
    border-radius: 5px;
    padding-left: inherit;
@@ -15,8 +15,13 @@
    .IconClass{
      display: flex;
      justify-content: flex-end;
+     align-items: center;
      cursor: pointer;
      color: red;
+   }
+
+   .title{
+     font-size: 140%;
    }
 
    .createAuthorInput {
@@ -32,19 +37,19 @@
      color: white;
 
      Button {
-       margin-top: 6px;
-       height: 35px;
        color: white;
        background: #01589D;
-       border-radius: 10px;
+       border-radius: 7px;
        border: none;
-       width: 20%;
+       width: 28%;
+       padding: 1% 4% 1% 4%;
      }
    }
 
    //Input field
    .form-control {
      margin-bottom: 0;
+     border-radius: 0;
    }
    //.form-control:focus {
    //  border-color: #ff80ff;

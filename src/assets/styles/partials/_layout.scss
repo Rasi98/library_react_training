@@ -4,3 +4,29 @@ html, body{
   font-family: 'Raleway', sans-serif;
   height: 100em;
 }
+
+.layout{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+@include media-breakpoint-up(sm) {
+  .layout{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+@include media-breakpoint-up(lg){
+  .layout{
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@include media-breakpoint-up(xl){
+  .layout{
+    display: flex;
+    flex-direction: row;
+  }
+}

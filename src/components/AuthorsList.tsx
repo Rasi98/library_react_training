@@ -23,8 +23,8 @@ const AuthorsList: React.FC <authorListProps> = (props) => {
 
     return(
         <Col xs={12} >
-            {(!allauthors || allauthors.length===0) && <label className={'no-author-msg pt-3'}>No authors listed here.</label>}
-            <ul className={'author-list mt-3'}>
+            {(!allauthors || allauthors.length===0) && <label className={'no-author-msg pt-sm-3'}>No authors listed here.</label>}
+            <ul className={'author-list mt-1 mt-sm-3'}>
                 {renderAuthors()}
             </ul>
         </Col>

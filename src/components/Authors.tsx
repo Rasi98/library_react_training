@@ -25,7 +25,7 @@ const Authors:React.FC<authorsProps> = (props) =>{
     }
 
     return(
-        <Row className={'author-section mx-3 my-2'}>
+        <Row className={'author-section mt-4 mb-5 mx-lg-3 my-lg-2'}>
             <AuthorsTitle/>
             <AuthorsList allauthors={props.authors} DeleteAuthor={props.handleDeleteAuthor}/>
             <AddAuthor onAddAuthorClick={handleAddAuthorform}/>

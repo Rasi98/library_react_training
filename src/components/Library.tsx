@@ -33,13 +33,13 @@ const Library: React.FC = () => {
     }
 
     return (
-        <Container fluid={true}>
+        <Container  fluid={true}>
             <Row>
                 <Col xs={12}>
                     <Welcome />
                 </Col>
             </Row>
-            <Row className={'d-flex flex-wrap-wrap'}>
+            <Row className={'layout'}>
                 <Col>
                     <Books authors = {authors}/>
                 </Col>

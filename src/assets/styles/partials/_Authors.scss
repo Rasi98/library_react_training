@@ -3,10 +3,11 @@ $h2-color: #2c3339;
 //AuthorsList
 .no-author-msg{
   font-style: italic;
+  font-size: 80%;
 }
 
 .list-name{
-  font-size: 120%;
+  font-size: 100%;
 }
 
 .author-list{
@@ -14,26 +15,23 @@ $h2-color: #2c3339;
   list-style: none;
 }
 
-.author:hover{
-  background-color: #F5F5F5;
-  .icon{
-    display: inherit;
-  }
-}
+//.author:hover{
+//  background-color: #F5F5F5;
+//  .icon{
+//    display: inherit;
+//  }
+//}
 .icon{
   width: 20px;
-  cursor: pointer;
-  display: none;
+  display: inherit;
 }
-
-
 
 //AuthorsTitle
 .author-title{
   h2 {
-    font-size: 200%;
-    font-weight: 500;
-    border-bottom: 2px solid $h2-color;
+    font-size: 150%;
+    font-weight: 600;
+    border-bottom: 1px solid $h2-color;
     color: $h2-color;
   }
 }
@@ -41,12 +39,135 @@ $h2-color: #2c3339;
 //AddAuthor
 .add-author{
   color: #282C2F;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: 700;
+}
+
+.add-author-icon{
+ width: 20px;
 }
 .add-author-icon:hover{
   cursor: pointer;
 }
 .add-author:hover{
   cursor: pointer;
+}
+
+@include media-breakpoint-up(sm) {
+  //AuthorsTitle
+  .author-title{
+    h2 {
+      font-size: 200%;
+      font-weight: 500;
+      border-bottom: 2px solid $h2-color;
+      color: $h2-color;
+    }
+  }
+
+  //AddAuthor
+  .add-author{
+    color: #282C2F;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
+  .add-author-icon{
+    width: 22px;
+  }
+  .add-author-icon:hover{
+    cursor: pointer;
+  }
+  .add-author:hover{
+    cursor: pointer;
+  }
+
+  //AuthorsList
+  .no-author-msg{
+    font-style: italic;
+    font-size: 100%;
+  }
+
+  .list-name{
+    font-size: 120%;
+  }
+
+  .author-list{
+    padding-left: 0;
+    list-style: none;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  //AuthorsTitle
+  .author-title{
+    h2 {
+      font-size: 200%;
+      font-weight: 500;
+      border-bottom: 2px solid $h2-color;
+      color: $h2-color;
+    }
+  }
+
+  //AuthorsList
+  .no-author-msg{
+    font-style: italic;
+    font-size: 100%;
+  }
+
+  .list-name{
+    font-size: 120%;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  //AuthorsList
+  .no-author-msg{
+    font-style: italic;
+  }
+
+  .list-name{
+    font-size: 120%;
+  }
+
+  .author-list{
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .author:hover{
+    background-color: #F5F5F5;
+    .icon{
+      display: inherit;
+    }
+  }
+  .icon{
+    width: 20px;
+    cursor: pointer;
+    display: none;
+  }
+
+
+
+  //AuthorsTitle
+  .author-title{
+    h2 {
+      font-size: 200%;
+      font-weight: 500;
+      border-bottom: 2px solid $h2-color;
+      color: $h2-color;
+    }
+  }
+
+  //AddAuthor
+  .add-author{
+    color: #282C2F;
+    font-size: 1em;
+    font-weight: 700;
+  }
+  .add-author-icon:hover{
+    cursor: pointer;
+  }
+  .add-author:hover{
+    cursor: pointer;
+  }
 }

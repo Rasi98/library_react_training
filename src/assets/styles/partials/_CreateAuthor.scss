@@ -1,10 +1,8 @@
  .CreateAuthor {
    display: flex;
    flex-direction: column;
-   margin: 4em 1em 1em;
-   width: 70vh;
-   border-radius: 5px;
-   padding-left: inherit;
+   margin-top: 2rem;
+   width: 100%;
 
    //h4{
    //  color: #01589D; //change color
@@ -14,26 +12,22 @@
 
    .IconClass{
      display: flex;
-     justify-content: flex-end;
+     justify-content: center;
      align-items: center;
      cursor: pointer;
      color: red;
    }
 
    .title{
-     font-size: 140%;
+     font-size: 1.2rem;
    }
 
    .createAuthorInput {
-     margin-left: 3em;
      margin-top: 1em;
-      input {
-
-      }
     }
    .ButtonClass {
      display: flex;
-     justify-content: flex-end;
+     justify-content: center;
      color: white;
 
      Button {
@@ -41,7 +35,7 @@
        background: #01589D;
        border-radius: 7px;
        border: none;
-       width: 28%;
+       width: 80%;
        padding: 1% 4% 1% 4%;
      }
    }
@@ -64,3 +58,82 @@
      font-size: 0.8em;
    }
   }
+ @include media-breakpoint-up(sm) {
+   .CreateAuthor {
+     display: flex;
+     flex-direction: column;
+     margin-top: 2rem;
+     width: 100%;
+
+     .title {
+       font-size: 1.3rem;
+     }
+
+     .IconClass {
+       display: flex;
+       justify-content: flex-end;
+       align-items: center;
+       cursor: pointer;
+       color: red;
+     }
+   }
+
+   @include media-breakpoint-up(xl){
+     .CreateAuthor {
+       display: flex;
+       flex-direction: column;
+       margin: 4em 1em 1em;
+       width: 70vh;
+       padding-left: inherit;
+
+       .IconClass{
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+         cursor: pointer;
+         color: red;
+       }
+
+       .title{
+         font-size: 140%;
+       }
+
+       .createAuthorInput {
+         margin-left: 3em;
+         margin-top: 1em;
+         input {
+
+         }
+       }
+       .ButtonClass {
+         display: flex;
+         justify-content: flex-end;
+         color: white;
+
+         Button {
+           color: white;
+           background: #01589D;
+           border-radius: 7px;
+           border: none;
+           width: 28%;
+           padding: 1% 4% 1% 4%;
+         }
+       }
+
+       //Input field
+       .form-control {
+         margin-bottom: 0;
+         border-radius: 0;
+       }
+
+       //Error messege
+       .errormsg {
+         color: red;
+         font-style: italic;
+         padding-top: 0;
+         font-size: 0.8em;
+       }
+     }
+   }
+
+ }

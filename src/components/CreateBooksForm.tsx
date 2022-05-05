@@ -1,4 +1,5 @@
 import React, { FormEvent, useState} from "react";
+import Select from "react-select";
 import {Button, Col, Image, Row} from "react-bootstrap";
 import closeButton from "../assets/images/closeButton.svg";
 import {IAuthor} from "../views/author";
@@ -25,21 +26,16 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
         setIsbn('')
     }
 
-
     return (
         <div className={'createBooksSection'}>
             <Row>
-                <Col>
+                <Col className = {"title-col"}>
                     <h3 className={'title'}>
                         Create Book
                     </h3>
-                </Col>
-                <Col>
-                    <div className={"IconClass"}>
+                    <div className={"IconClass-close"}>
                         <Image src={closeButton} onClick={props.onCloseButtonClick}/>
                     </div>
-
-
                 </Col>
             </Row>
             <form className= 'booksForm'>
@@ -65,7 +61,8 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
 
                 <label className='input-label'>Author of the book
                 </label>
-                <select className='form-control'
+                <select
+                        className='form-control'
                         id={'dropdown'}
                         onChange={(e) => {setBookAuthor(e.target.value)}}
                         onFocus={() =>seterrormsgvisible(false)}

@@ -7,7 +7,7 @@ $h2-color: #2c3339;
 }
 
 .list-name{
-  font-size: 100%;
+  font-size: 120%;
 }
 
 .author-list{
@@ -146,7 +146,9 @@ $h2-color: #2c3339;
     display: none;
   }
 
-
+li{
+  font-size: 18px;
+}
 
   //AuthorsTitle
   .author-title{

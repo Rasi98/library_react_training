@@ -6,6 +6,7 @@ import AddBook from "./AddBook";
 import CreateBookForm from '../CreateBooksForm';
 import {IBook} from "../../views/Books"
 import {IAuthor} from "../../views/author";
+import Swal from "sweetalert2";
 
 type booksProps = {
     authors: IAuthor[] | null;
@@ -34,6 +35,13 @@ const Books: React.FC<booksProps> = (props) => {
         const newBooks: IBook[] = books ? books.slice() : []
         newBooks.push(newBook)
         setBooks(newBooks)
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Book Added!',
+            showConfirmButton: false,
+            timer: 1000
+        })
     }
 
     const handleDeleteBook = (index:number) => {

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Col, Container, Row} from "react-bootstrap";
+import Swal from 'sweetalert2';
 
 import Welcome from "./Welcome";
 import Authors from './Authors'

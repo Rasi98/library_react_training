@@ -3,27 +3,29 @@ import {Col} from "react-bootstrap";
 import Author from './Author';
 import {IAuthor} from "../views/author";
 
-type authorListProps = {
-    allauthors:IAuthor[]| null
-    DeleteAuthor: (index:number) => void
+type AuthorListProps= {
+    allAuthors:IAuthor[]| null
+    deleteAuthor: (index:number)=> void
 }
+const AuthorsList: React.FC<AuthorListProps>= (props)=> {
+   const {allAuthors} = props
 
-const AuthorsList: React.FC <authorListProps> = (props) => {
-
-   const {allauthors} = props
-
-    const renderAuthors = () => {
-        if(!allauthors){
+    const renderAuthors= () => {
+        if(!allAuthors) {
             return;
         }
-        return  allauthors.map((author:IAuthor,index:number) =>
-            <li className={'author py-2'} key={index}><Author DeleteAuthor={props.DeleteAuthor} num={index+1} authorName={author}/></li>);
+        return  allAuthors.map((author:IAuthor,index:number) =>
+            <li className={'author py-2'} key={index}>
+                <Author
+                    deleteAuthor={props.deleteAuthor}
+                    num={index+1}
+                    authorName={author}/>
+            </li>);
     }
-
 
     return(
         <Col xs={12} >
-            {(!allauthors || allauthors.length===0) &&
+            {(!allAuthors || allAuthors.length===0) &&
                 <label className={'no-author-msg pt-sm-3'}>No authors listed here.</label>}
             <ul className={'author-list mt-1 mt-sm-3'}>
                 {renderAuthors()}
@@ -31,5 +33,4 @@ const AuthorsList: React.FC <authorListProps> = (props) => {
         </Col>
     );
 }
-
 export default AuthorsList;

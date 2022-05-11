@@ -9,13 +9,15 @@ const Welcome: React.FC = () => {
                 <h1 className='text-center'>My Library</h1>
             </Col>
             <Col xs={12} className='px-0'>
-                <Image src={library} />
+                <Image alt={'Library Image'} src={library} />
             </Col>
             <Col xs={12} className='text-end pt-2'>
                 <span className='photo-credits'>
                 Photo by{" "}
-                <a href="https://unsplash.com/@annahunko?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Anna Hunko</a> on{" "}
-                <a href="https://unsplash.com/@annahunko?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                <a href="https://unsplash.com/
+                @annahunko?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Anna Hunko</a> on{" "}
+                <a href="https://unsplash.com/
+                @annahunko?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
                 </span>
             </Col>
         </Row>

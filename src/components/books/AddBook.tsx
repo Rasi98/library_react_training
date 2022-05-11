@@ -3,7 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import logo from "../../assets/icons/plus.svg";
 
 type BooksProps = {
-    onAddBookClick: ()=> void
+    onAddBookClick: () => void;
 }
 
 const AddBook: React.FC<BooksProps> = (props) => {

@@ -1,5 +1,5 @@
 import React, { FormEvent, useState} from "react";
-import Select from "react-select";
+//import Select from "react-select";
 import {Button, Col, Image, Row} from "react-bootstrap";
 import closeButton from "../assets/images/closeButton.svg";
 import {IAuthor} from "../views/author";
@@ -29,7 +29,7 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
     return (
         <div className={'createBooksSection'}>
             <Row>
-                <Col className = {"title-col"}>
+                <Col className = {"title-col"} xs={10}>
                     <h3 className={'title'}>
                         Create Book
                     </h3>

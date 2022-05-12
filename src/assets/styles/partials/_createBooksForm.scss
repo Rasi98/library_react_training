@@ -21,7 +21,7 @@
   margin-top: 1em;
 }
 
-.add-book .px-1{
+.add-book {
   font-size: 1.2rem;
 }
 
@@ -42,7 +42,7 @@
 
 .input-label{
   margin-bottom: 3px;
-  margin-left: 4px;
+  //margin-left: 4px;
   font-size: small;
 }
 
@@ -116,7 +116,7 @@
 
   .booksForm {
     height: 80%;
-    margin-left: 3em;
+    //margin-left: 3em;
     margin-top: 1em;
     display: flex;
     flex-direction: column;
@@ -124,7 +124,7 @@
 
   //Input field
   .form-control {
-    margin-bottom: 0;
+    margin-bottom: 10px;
     border-radius: 0;
   }
   //.form-control:focus {
@@ -141,7 +141,7 @@
   }
 }
 @include media-breakpoint-up(sm) {
-  .CreateAuthor {
+  .createBooksSection {
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
@@ -158,10 +158,15 @@
       cursor: pointer;
       color: red;
     }
+
+    .form-control {
+      margin-bottom: 10px;
+      border-radius: 0;
+    }
   }
 
   @include media-breakpoint-up(xl){
-    .CreateAuthor {
+    .createBooksSection {
       display: flex;
       flex-direction: column;
       margin: 3.5em 1em 1em;
@@ -180,14 +185,14 @@
         font-size: 140%;
       }
 
-      .createAuthorInput {
+      .booksForm {
         margin-left: 3em;
         margin-top: 1em;
         input {
 
         }
       }
-      .ButtonClass {
+      .button {
         display: flex;
         justify-content: flex-end;
         color: white;

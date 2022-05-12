@@ -16,7 +16,17 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
     const [bookAuthor, setBookAuthor] = useState<string>('');
     const [errormsgvisible,seterrormsgvisible] = useState(false);
 
-    const handlesubmit = (e:FormEvent) => {
+    const options = () => {
+        const authors: {value:string,label:string}[] = [];
+        if(props.authors) {
+            props.authors.map((author: IAuthor) =>
+                authors.push({value: author.name, label: author.name})
+            )
+        }
+        return authors;
+    }
+
+    const handleSubmit = (e:FormEvent) => {
         e.preventDefault();
         if (!bookTitle || !isbn || !bookAuthor) {
             seterrormsgvisible(true)
@@ -61,20 +71,12 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
 
                 <label className='input-label'>Author of the book
                 </label>
-                <select
-                        className='form-control'
-                        id={'dropdown'}
-                        onChange={(e) => {setBookAuthor(e.target.value)}}
-                        onFocus={() =>seterrormsgvisible(false)}
-                >
-                    <option value='' disabled selected hidden>{props.authors ? 'Choose here...' : 'No Authors'}</option>
-                    {props.authors ? props.authors.map((author:IAuthor) =>
-                        <option value={author.name}>{author.name}</option>):
-                        <option value='' disabled> No Authors </option>}
-                </select>
+                <Select options={options()}
+                        onChange={(event) => event ? setBookAuthor(event.value) : setBookAuthor('')}
+                        onFocus={() =>seterrormsgvisible(false)}/>
                 {errormsgvisible && <label className={'errormsg'}>All fields are required!</label>}
                 <div className="button mt-3">
-                    <Button type="submit" className={'submit-btn'} onClick={handlesubmit}>Create</Button>
+                    <Button type="submit" className={'submit-btn'} onClick={handleSubmit}>Create</Button>
                 </div>
             </form>
         </div>

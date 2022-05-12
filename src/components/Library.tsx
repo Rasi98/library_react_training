@@ -1,36 +1,33 @@
 import React, {useState} from "react";
 import {Col, Container, Row} from "react-bootstrap";
-import Swal from 'sweetalert2';
 
 import Welcome from "./Welcome";
 import Authors from './Authors'
 import Books from "./books/Books";
 import {IAuthor} from "../views/author";
 
-
-
 const Library: React.FC = () => {
-    const[authors,setauthors]=useState<IAuthor[] | null>(null);
+    const[authors,setAuthors]=useState<IAuthor[] | null>(null);
 
-    const handleAddAuthor = (author: string) => {
-        if (!author){
-            return;
+    const handleAddAuthor= (author: string) => {
+        if(!author){
+            return
         }
-        const newauthor={
+        const newauthor= {
             name:author
         }
-        const newauthors: IAuthor[] = authors ? authors.slice() : []
-        newauthors.push(newauthor)
-        setauthors(newauthors)
+        const newauthors: IAuthor[] = authors ? authors.slice() : [];
+        newauthors.push(newauthor);
+        setAuthors(newauthors);
     }
 
-    const handleDeleteAuthor = (index:number) => {
-        if(!authors){
-            return
+    const handleDeleteAuthor= (index:number) => {
+        if(!authors) {
+            return;
         }
         const newauthorlist: IAuthor[] = authors.slice();
         newauthorlist.splice(index,1);
-        setauthors(newauthorlist);
+        setAuthors(newauthorlist);
     }
 
     return (
@@ -45,12 +42,12 @@ const Library: React.FC = () => {
                     <Books authors = {authors}/>
                 </Col>
                 <Col>
-                    <Authors handleAddAuthor = {handleAddAuthor} authors = {authors}
+                    <Authors handleAddAuthor = {handleAddAuthor}
+                             authors = {authors}
                              handleDeleteAuthor={handleDeleteAuthor}/>
                 </Col>
             </Row>
         </Container>
     )
 }
-
 export default Library;

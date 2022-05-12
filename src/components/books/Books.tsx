@@ -6,42 +6,34 @@ import AddBook from "./AddBook";
 import CreateBookForm from '../CreateBooksForm';
 import {IBook} from "../../views/Books"
 import {IAuthor} from "../../views/author";
-import Swal from "sweetalert2";
 
-type booksProps = {
+type BooksProps = {
     authors: IAuthor[] | null;
 }
 
-const Books: React.FC<booksProps> = (props) => {
-    const[isFormVisible,setisFormVisible]=useState(false)
-    const[books,setBooks]=useState<IBook[] | null>(null)
+const Books: React.FC<BooksProps>= (props) => {
+    const[isFormVisible,setIsFormVisible]= useState(false);
+    const[books,setBooks]= useState<IBook[] | null>(null);
 
     const handleAddBookForm = () => {
-        setisFormVisible(true);
+        setIsFormVisible(true);
     }
     const handleCloseBook = () => {
-        setisFormVisible(false);
+        setIsFormVisible(false);
     }
 
-    const handleAddBook = (book: string, isbn: string, author: string) => {
+    const handleAddBook= (book: string, isbn: string, author: string) => {
         if (!book || !isbn || !author){
             return;
         }
-        const newBook={
+        const newBook= {
             title:book,
             isbn: isbn,
             author: author
         }
-        const newBooks: IBook[] = books ? books.slice() : []
-        newBooks.push(newBook)
-        setBooks(newBooks)
-        Swal.fire({
-            position: 'top',
-            icon: 'success',
-            title: 'Book Added!',
-            showConfirmButton: false,
-            timer: 1000
-        })
+        const newBooks: IBook[] = books ? books.slice() : [];
+        newBooks.push(newBook);
+        setBooks(newBooks);
     }
 
     const handleDeleteBook = (index:number) => {
@@ -49,10 +41,9 @@ const Books: React.FC<booksProps> = (props) => {
             return;
         }
         const newbooklist: IBook[] = books.slice();
-        newbooklist.splice(index,1)
-        setBooks(newbooklist)
+        newbooklist.splice(index,1);
+        setBooks(newbooklist);
     }
-
     return(
         <Row className='book-section mx-3 my-2'>
             <BookTitle />

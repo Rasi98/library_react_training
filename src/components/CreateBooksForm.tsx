@@ -1,12 +1,12 @@
 import React, { FormEvent, useState} from "react";
 import Select from "react-select";
 import {Button, Col, Image, Row} from "react-bootstrap";
-import closeButton from "../assets/images/closeButton.svg";
+import closeButton from "../assets/icons/closeButton.svg";
 import {IAuthor} from "../views/author";
 
-type CreateBooksProps={
-    onCloseButtonClick: ()=>void
-    handleAddBooks: (book: string, isbn: string, author: string) => void
+type CreateBooksProps = {
+    onCloseButtonClick: ()=>void;
+    handleAddBooks: (book: string, isbn: string, author: string) => void;
     authors: IAuthor[] | null;
 }
 
@@ -14,7 +14,7 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
     const [bookTitle, setBookTitle] = useState<string>('');
     const [isbn, setIsbn] = useState<string>('');
     const [bookAuthor, setBookAuthor] = useState<string>('');
-    const [errormsgvisible,seterrormsgvisible] = useState(false);
+    const [errorMsgVisible,setErrorMsgVisible] = useState(false);
 
     const options = () => {
         const authors: {value:string,label:string}[] = [];
@@ -29,11 +29,11 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
     const handleSubmit = (e:FormEvent) => {
         e.preventDefault();
         if (!bookTitle || !isbn || !bookAuthor) {
-            seterrormsgvisible(true)
+            setErrorMsgVisible(true);
         }
-        props.handleAddBooks(bookTitle, isbn, bookAuthor)
-        setBookTitle('')
-        setIsbn('')
+        props.handleAddBooks(bookTitle, isbn, bookAuthor);
+        setBookTitle('');
+        setIsbn('');
     }
 
     return (
@@ -55,8 +55,8 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                     className='form-control'
                     type="text"
                     value={bookTitle}
-                    onChange={(e) => {setBookTitle(e.target.value)}}
-                    onFocus={() =>seterrormsgvisible(false)}
+                    onChange={(e) =>{setBookTitle(e.target.value)}}
+                    onFocus={(e) =>setErrorMsgVisible(false)}
                 />
 
                 <label className='input-label'>ISBN
@@ -66,7 +66,7 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                     type="text"
                     value={isbn}
                     onChange={(e) => {setIsbn(e.target.value)}}
-                    onFocus={() =>seterrormsgvisible(false)}
+                    onFocus={(e) =>setErrorMsgVisible(false)}
                 />
 
                 <label className='input-label'>Author of the book
@@ -74,7 +74,7 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                 <Select options={options()}
                         onChange={(event) => event ? setBookAuthor(event.value) : setBookAuthor('')}
                         onFocus={() =>seterrormsgvisible(false)}/>
-                {errormsgvisible && <label className={'errormsg'}>All fields are required!</label>}
+                {errormsgvisible && <label className={'errormsg'}>All fields are required!</label>
                 <div className="button mt-3">
                     <Button type="submit" className={'submit-btn'} onClick={handleSubmit}>Create</Button>
                 </div>

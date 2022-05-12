@@ -1,24 +1,24 @@
 import React, { FormEvent, useState} from 'react';
 import {Button, Col, Image, Row} from "react-bootstrap";
-import closeButton from "../assets/images/closeButton.svg";
+import closeButton from "../assets/icons/closeButton.svg";
 
 type CreateAuthorProps = {
-    onCloseButtonClick: ()=> void
+    onCloseButtonClick: () => void
     handleAddAuthor: (author: string) => void
 }
 
 const CreateAuthor: React.FC <CreateAuthorProps>= (props) => {
 
     const [authorName,setAuthorName] = useState<string>('');
-    const [errormsgvisible,seterrormsgvisible] = useState(false)
+    const [errorMsgVisible,setErrorMsgVisible] = useState(false);
 
-    const handlesubmit = (e:FormEvent) => {
+    const handleSubmit = (e:FormEvent) => {
         e.preventDefault();
         if (!authorName){
-            seterrormsgvisible(true)
+            setErrorMsgVisible(true);
         }
-        props.handleAddAuthor(authorName)
-        setAuthorName('')
+        props.handleAddAuthor(authorName);
+        setAuthorName('');
     }
 
         return (
@@ -43,12 +43,12 @@ const CreateAuthor: React.FC <CreateAuthorProps>= (props) => {
                             id="nameInput"
                             value={authorName}
                             onChange={(e) => {setAuthorName(e.target.value)}}
-                            onFocus={() =>seterrormsgvisible(false)}
+                            onFocus={(e) =>setErrorMsgVisible(false)}
                         />
-                        {errormsgvisible && <label className={'errormsg'}>This field is required!</label>}
+                        {errorMsgVisible && <label className={'errormsg'}>This field is required!</label>}
 
                         <div className={"ButtonClass"}>
-                            <Button onClick={handlesubmit}>
+                            <Button onClick={handleSubmit}>
                                 Create
                             </Button>
                         </div>

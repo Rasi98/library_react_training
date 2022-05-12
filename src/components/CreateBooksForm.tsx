@@ -73,7 +73,7 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                         <option value='' disabled> No Authors </option>}
                 </select>
                 {errormsgvisible && <label className={'errormsg'}>All fields are required!</label>}
-                <div className="button mt-3">
+                <div className="button">
                     <Button type="submit" className={'submit-btn'} onClick={handlesubmit}>Create</Button>
                 </div>
             </form>

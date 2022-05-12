@@ -73,8 +73,8 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                 </label>
                 <Select options={options()}
                         onChange={(event) => event ? setBookAuthor(event.value) : setBookAuthor('')}
-                        onFocus={() =>seterrormsgvisible(false)}/>
-                {errormsgvisible && <label className={'errormsg'}>All fields are required!</label>
+                        onFocus={() =>setErrorMsgVisible(false)}/>
+                {errorMsgVisible && <label className={'errormsg'}>All fields are required!</label>}
                 <div className="button mt-3">
                     <Button type="submit" className={'submit-btn'} onClick={handleSubmit}>Create</Button>
                 </div>

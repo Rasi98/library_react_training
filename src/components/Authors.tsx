@@ -7,6 +7,8 @@ import AuthorsTitle from './AuthorsTitle';
 import AddAuthor from './AddAuthor';
 import {IAuthor} from "../views/author";
 
+
+
 type authorsProps = {
     handleAddAuthor: (author: string) => void
     authors: IAuthor[] | null;

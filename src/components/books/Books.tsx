@@ -21,15 +21,16 @@ const Books: React.FC<BooksProps>= (props) => {
     const handleCloseBook = () => {
         setIsFormVisible(false);
     }
-    const handleAddBook= (book: string, isbn: string, author: string) => {
-        if (!book || !isbn || !author){
+    const handleAddBook= (book: string, price: string, author: string) => {
+        if (!book || !price || !author){
             return;
         }
         const newBook= {
             title:book,
-            isbn: isbn,
+            price: price,
             author: author
         }
+        console.log(newBook);
         const newBooks: IBook[] = books ? books.slice() : [];
         newBooks.push(newBook);
         setBooks(newBooks);

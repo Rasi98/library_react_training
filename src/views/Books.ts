@@ -1,5 +1,5 @@
 export interface IBook{
     title:string
-    isbn:string
+    price:string
     author:string
 }

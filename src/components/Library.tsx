@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Col, Container, Row} from "react-bootstrap";
+import Swal from 'sweetalert2'
 
 import Welcome from "./Welcome";
 import Authors from './Authors'
@@ -19,6 +20,13 @@ const Library: React.FC = () => {
         const newauthors: IAuthor[] = authors ? authors.slice() : [];
         newauthors.push(newauthor);
         setAuthors(newauthors);
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Author added!',
+            showConfirmButton: false,
+            timer: 1200
+        })
     }
 
     const handleDeleteAuthor= (index:number) => {
@@ -28,6 +36,13 @@ const Library: React.FC = () => {
         const newauthorlist: IAuthor[] = authors.slice();
         newauthorlist.splice(index,1);
         setAuthors(newauthorlist);
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Author deleted!',
+            showConfirmButton: false,
+            timer: 1200
+        })
     }
 
     return (

@@ -3,16 +3,18 @@ import Select from "react-select";
 import {Button, Col, Image, Row} from "react-bootstrap";
 import closeButton from "../assets/icons/closeButton.svg";
 import {IAuthor} from "../views/author";
+import NumberFormat from 'react-number-format';
+
 
 type CreateBooksProps = {
     onCloseButtonClick: ()=>void;
-    handleAddBooks: (book: string, isbn: string, author: string) => void;
+    handleAddBooks: (book: string, price: string, author: string) => void;
     authors: IAuthor[] | null;
 }
 
 const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
     const [bookTitle, setBookTitle] = useState<string>('');
-    const [isbn, setIsbn] = useState<string>('');
+    const [price, setPrice] = useState<string>('');
     const [bookAuthor, setBookAuthor] = useState<string>('');
     const [errorMsgVisible,setErrorMsgVisible] = useState(false);
 
@@ -28,12 +30,12 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
 
     const handleSubmit = (e:FormEvent) => {
         e.preventDefault();
-        if (!bookTitle || !isbn || !bookAuthor) {
+        if (!bookTitle || !price || !bookAuthor) {
             setErrorMsgVisible(true);
         }
-        props.handleAddBooks(bookTitle, isbn, bookAuthor);
+        props.handleAddBooks(bookTitle,price, bookAuthor);
         setBookTitle('');
-        setIsbn('');
+        setPrice('')
     }
 
     return (
@@ -54,21 +56,24 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                 <input
                     className='form-control'
                     type="text"
-                    value={bookTitle}
+                    value={bookTitle ? bookTitle : ''}
                     onChange={(e) =>{setBookTitle(e.target.value)}}
-                    onFocus={(e) =>setErrorMsgVisible(false)}
+                    onFocus={() =>setErrorMsgVisible(false)}
                 />
 
-                <label className='input-label'>ISBN
+                <label className='input-label'>Price
                 </label>
-                <input
-                    className='form-control'
-                    type="text"
-                    value={isbn}
-                    onChange={(e) => {setIsbn(e.target.value)}}
-                    onFocus={(e) =>setErrorMsgVisible(false)}
+                <NumberFormat
+                    value={price}
+                    allowNegative={false}
+                    displayType={'input'}
+                    thousandSeparator={true}
+                    prefix={'$'}
+                    onValueChange={(values) => {
+                        const { formattedValue } = values;
+                        setPrice(formattedValue);
+                    }}
                 />
-
                 <label className='input-label'>Author of the book
                 </label>
                 <Select options={options()}

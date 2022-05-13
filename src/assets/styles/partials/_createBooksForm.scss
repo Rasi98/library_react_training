@@ -22,7 +22,7 @@
 }
 
 .add-book {
-  font-size: 1.2rem;
+  font-size: 0.9em;
 }
 
 
@@ -165,6 +165,13 @@
     }
   }
 
+  .add-book {
+    color: #282C2F;
+    font-size: 1em;
+    font-weight: 700;
+  }
+}
+
   @include media-breakpoint-up(xl){
     .createBooksSection {
       display: flex;
@@ -188,9 +195,7 @@
       .booksForm {
         margin-left: 3em;
         margin-top: 1em;
-        input {
 
-        }
       }
       .button {
         display: flex;
@@ -224,4 +229,3 @@
     }
   }
 
-}

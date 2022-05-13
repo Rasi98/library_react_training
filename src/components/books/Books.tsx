@@ -45,7 +45,7 @@ const Books: React.FC<BooksProps>= (props) => {
         setBooks(newbooklist);
     }
     return(
-        <Row className='book-section mx-3 my-2'>
+        <Row className='book-section mt-4 mb-5 mx-lg-3 my-lg-2'>
             <BookTitle />
             <BookList allBooks={books} handleDeleteBook={handleDeleteBook}/>
             <AddBook onAddBookClick={handleAddBookForm}/>

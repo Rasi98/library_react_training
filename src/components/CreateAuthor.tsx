@@ -47,7 +47,7 @@ const CreateAuthor: React.FC <CreateAuthorProps>= (props) => {
                         />
                         {errorMsgVisible && <label className={'errormsg'}>This field is required!</label>}
 
-                        <div className={"ButtonClass"}>
+                        <div className={"ButtonClass mt-3"}>
                             <Button onClick={handleSubmit}>
                                 Create
                             </Button>

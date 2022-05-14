@@ -16,7 +16,9 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
     const [bookTitle, setBookTitle] = useState<string>('');
     const [price, setPrice] = useState<string>('');
     const [bookAuthor, setBookAuthor] = useState<string>('');
-    const [errorMsgVisible,setErrorMsgVisible] = useState(false);
+    const [errorMsgAuthorVisible,setErrorMsgAuthorVisible] = useState(false);
+    const [errorMsgTitleVisible,setErrorMsgTitleVisible] = useState(false);
+    const [errorMsgPriceVisible,setErrorMsgPriceVisible] = useState(false);
 
     const options = () => {
         const authors: {value:string,label:string}[] = [];
@@ -30,8 +32,14 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
 
     const handleSubmit = (e:FormEvent) => {
         e.preventDefault();
-        if (!bookTitle || !price || !bookAuthor) {
-            setErrorMsgVisible(true);
+        if (!bookAuthor) {
+            setErrorMsgAuthorVisible(true);
+        }
+        if (!price) {
+            setErrorMsgPriceVisible(true)
+        }
+        if (!bookTitle) {
+            setErrorMsgTitleVisible(true)
         }
         props.handleAddBooks(bookTitle,price, bookAuthor);
         setBookTitle('');
@@ -70,8 +78,9 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                     type="text"
                     value={bookTitle ? bookTitle : ''}
                     onChange={(e) =>{setBookTitle(e.target.value)}}
-                    onFocus={() =>setErrorMsgVisible(false)}
+                    onFocus={() =>setErrorMsgTitleVisible(false)}
                 />
+                {errorMsgTitleVisible && <label className={'errormsg'}>Title field is required!</label>}
 
                 <label className='input-label'>Price
                 </label>
@@ -86,6 +95,7 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                         const { formattedValue } = values;
                         setPrice(formattedValue);
                     }}
+                    onFocus={() => setErrorMsgPriceVisible(false)}
                 />
                 <label className='input-label'>Author
                 </label>

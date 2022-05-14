@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import Swal from 'sweetalert2'
 
@@ -9,6 +9,30 @@ import {IAuthor} from "../views/author";
 
 const Library: React.FC = () => {
     const[authors,setAuthors]=useState<IAuthor[] | null>(null);
+    const[editAuthorIndex,setEditAuthorIndex] = useState<number | null>(null);
+    const [authorToUpdate,setAuthorToUpdate] = useState<IAuthor | null>(null);
+
+    const handleEditAuthorIndex= (index:number) => {
+        setEditAuthorIndex(index);
+        console.log(index)
+    }
+
+    const handleAuthorUpdate= (author:IAuthor) => {
+        if (!authors || !editAuthorIndex){
+            return;
+        }
+        const authorList: IAuthor[] = authors.slice();
+        authorList.splice(editAuthorIndex,1,author);
+        setAuthors(authorList);
+    }
+
+    useEffect(() => {
+        if (!editAuthorIndex || !authors){
+            return;
+        }
+        const authorToUpdate: IAuthor = authors[editAuthorIndex];
+        setAuthorToUpdate(authorToUpdate);
+    },[editAuthorIndex])
 
     const handleAddAuthor= (author: string) => {
         if(!author){
@@ -45,6 +69,7 @@ const Library: React.FC = () => {
         })
     }
 
+
     return (
         <Container  fluid={true}>
             <Row>
@@ -59,7 +84,11 @@ const Library: React.FC = () => {
                 <Col>
                     <Authors handleAddAuthor = {handleAddAuthor}
                              authors = {authors}
-                             handleDeleteAuthor={handleDeleteAuthor}/>
+                             handleEditAuthorIndex={handleEditAuthorIndex}
+                             handleDeleteAuthor={handleDeleteAuthor}
+                             authorToUpdate={authorToUpdate}
+                             handleAuthorUpdate={handleAuthorUpdate}
+                    />
                 </Col>
             </Row>
         </Container>

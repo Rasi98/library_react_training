@@ -17,7 +17,7 @@ const DeleteConfirmation:React.FC<DeleteconfProps> = (props) => {
             if (!props.DeleteAuthor) {
                 return
             }
-            props.DeleteAuthor(index - 1)
+            props.DeleteAuthor(index)
             props.setIsDeleteConfMsgVisible(false)
         }
         else if(props.type==='book'){

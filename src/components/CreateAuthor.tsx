@@ -43,9 +43,9 @@ const CreateAuthor: React.FC <CreateAuthorProps>= (props) => {
                             id="nameInput"
                             value={authorName}
                             onChange={(e) => {setAuthorName(e.target.value)}}
-                            onFocus={(e) =>setErrorMsgVisible(false)}
+                            onFocus={() =>setErrorMsgVisible(false)}
                         />
-                        {errorMsgVisible && <label className={'errormsg'}>This field is required!</label>}
+                        {errorMsgVisible && <label className={'errormsg'}>Author name field is required!</label>}
 
                         <div className={"ButtonClass mt-3"}>
                             <Button onClick={handleSubmit}>

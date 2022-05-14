@@ -12,7 +12,7 @@ const Welcome: React.FC = () => {
                 <Image alt={'Library Image'} src={library} />
             </Col>
             <Col xs={12} className='text-end pt-2'>
-                <span className='photo-credits'>
+                <span className='photo-credits me-2 me-sm-3 me-lg-4 me-xl-5'>
                 Photo by{" "}
                 <a href="https://unsplash.com/
                 @annahunko?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Anna Hunko</a> on{" "}

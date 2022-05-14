@@ -15,6 +15,8 @@
 
 .title{
   font-size: 1.2rem;
+  color: #0D493F;
+  border-bottom: 1px solid #0D493F;
 }
 
 .booksForm{
@@ -89,13 +91,6 @@
     color: red;
   }
 
-  .title{
-    font-size: 1.2rem;
-  }
-
-  .booksForm {
-    margin-top: 1em;
-  }
   .button {
     display: flex;
     justify-content: center;
@@ -149,6 +144,8 @@
 
     .title {
       font-size: 1.3rem;
+      color: #0D493F;
+      border-bottom: 2px solid #0D493F;
     }
 
     .IconClass {
@@ -190,6 +187,8 @@
 
       .title{
         font-size: 140%;
+        color: #0D493F;
+        border-bottom: 2px solid #0D493F;
       }
 
       .booksForm {

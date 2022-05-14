@@ -4,12 +4,6 @@
    margin-top: 2rem;
    width: 100%;
 
-   //h4{
-   //  color: #01589D; //change color
-   //  border-bottom: solid 2px;
-   //  width: fit-content;
-   //}
-
    .IconClass{
      display: flex;
      justify-content: center;
@@ -18,10 +12,10 @@
      color: red;
    }
 
-
-
    .title{
      font-size: 1.2rem;
+     color: #0D493F;
+     border-bottom: 1px solid #0D493F;
    }
 
    .createAuthorInput {
@@ -47,11 +41,10 @@
    .form-control {
      margin-bottom: 0;
      border-radius: 0;
+     width: 100%;
+     border-color: #969696;
+     height: 2em;
    }
-   //.form-control:focus {
-   //  border-color: #ff80ff;
-   //  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 100, 255, 0.5);
-   //}
 
    //Error messege
    .errormsg {
@@ -70,6 +63,8 @@
 
      .title {
        font-size: 1.3rem;
+       color: #0D493F;
+       border-bottom: 2px solid #0D493F;
      }
 
      .IconClass {
@@ -99,6 +94,8 @@
 
        .title{
          font-size: 140%;
+         color: #0D493F;
+         border-bottom: 2px solid #0D493F;
        }
 
        .createAuthorInput {
@@ -119,15 +116,9 @@
            background: #01589D;
            border-radius: 7px;
            border: none;
-           width: 28%;
+           width: 25%;
            padding: 1% 4% 1% 4%;
          }
-       }
-
-       //Input field
-       .form-control {
-         margin-bottom: 0;
-         border-radius: 0;
        }
 
        //Error messege

@@ -138,4 +138,18 @@ $click-me: #86A5D4;
   }
 }
 
+@include media-breakpoint-up(xl){
+  .book:hover{
+    background-color: #F5F5F5;
+    .icon{
+      display: inherit;
+    }
+  }
+  .icon{
+    width: 20px;
+    cursor: pointer;
+    display: none;
+  }
+}
+
 

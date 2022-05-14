@@ -80,9 +80,9 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                     onChange={(e) =>{setBookTitle(e.target.value)}}
                     onFocus={() =>setErrorMsgTitleVisible(false)}
                 />
-                {errorMsgTitleVisible && <label className={'errormsg'}>Title field is required!</label>}
+                {errorMsgTitleVisible && <label className={'errormsg '}>Title field is required!</label>}
 
-                <label className='input-label'>Price
+                <label className='input-label pt-1 pt-sm-2 pt-lg-3'>Price
                 </label>
                 <NumberFormat
                     className='form-control'
@@ -97,15 +97,16 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                     }}
                     onFocus={() => setErrorMsgPriceVisible(false)}
                 />
-                <label className='input-label'>Author
+                {errorMsgPriceVisible && <label className={'errormsg'}>Price field is required!</label>}
+                <label className='input-label pt-1 pt-sm-2 pt-lg-3'>Author
                 </label>
                 <Select
                     isClearable={true}
                     styles={customStyles}
                     options={options()}
                     onChange={(event) => event ? setBookAuthor(event.value) : setBookAuthor('')}
-                    onFocus={() =>setErrorMsgVisible(false)}/>
-                {errorMsgVisible && <label className={'errormsg'}>All fields are required!</label>}
+                    onFocus={() =>setErrorMsgAuthorVisible(false)}/>
+                {errorMsgAuthorVisible && <label className={'errormsg'}>Author field is required!</label>}
                 <div className="button mt-4">
                     <Button type="submit" className={'submit-btn'} onClick={handleSubmit}>Create</Button>
                 </div>

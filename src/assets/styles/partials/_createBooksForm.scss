@@ -27,8 +27,6 @@
   font-size: 0.9em;
 }
 
-
-
 .IconClass-close{
   cursor: pointer;
   color: red;
@@ -37,9 +35,9 @@
 .form-control{
   margin-bottom: 15px;
   border-radius: 0;
-  height: 34px;
   width: 100%;
-  border: 2px solid #dedede;
+  border-color: #969696;
+  height: 2em;
 }
 
 .input-label{
@@ -47,9 +45,6 @@
   //margin-left: 4px;
   font-size: small;
 }
-
-
-
 
 .errormsg {
   color: red;
@@ -71,12 +66,6 @@
   flex-direction: column;
   margin-top: 2rem;
   width: 100%;
-
-  //h4{
-  //  color: #01589D; //change color
-  //  border-bottom: solid 2px;
-  //  width: fit-content;
-  //}
 
   .IconClass{
     display: flex;
@@ -117,16 +106,6 @@
     flex-direction: column;
   }
 
-  //Input field
-  .form-control {
-    margin-bottom: 10px;
-    border-radius: 0;
-  }
-  //.form-control:focus {
-  //  border-color: #ff80ff;
-  //  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 100, 255, 0.5);
-  //}
-
   //Error messege
   .errormsg {
     color: red;
@@ -156,10 +135,6 @@
       color: red;
     }
 
-    .form-control {
-      margin-bottom: 10px;
-      border-radius: 0;
-    }
   }
 
   .add-book {
@@ -207,15 +182,9 @@
           background: #01589D;
           border-radius: 7px;
           border: none;
-          width: 28%;
+          width: 25%;
           padding: 1% 4% 1% 4%;
         }
-      }
-
-      //Input field
-      .form-control {
-        margin-bottom: 0;
-        border-radius: 0;
       }
 
       //Error messege

@@ -36,7 +36,19 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
         props.handleAddBooks(bookTitle,price, bookAuthor);
         setBookTitle('');
         setPrice('')
+        setBookAuthor('')
+
     }
+
+    const customStyles = {
+        control: (base: any) => ({
+            ...base,
+            height: '2.2em',
+            minHeight: '2.2em',
+            borderRadius:0,
+            borderColor:'#969696'
+        })
+    };
 
     return (
         <div className={'createBooksSection'}>
@@ -64,6 +76,7 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                 <label className='input-label'>Price
                 </label>
                 <NumberFormat
+                    className='form-control'
                     value={price}
                     allowNegative={false}
                     displayType={'input'}
@@ -74,13 +87,16 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                         setPrice(formattedValue);
                     }}
                 />
-                <label className='input-label'>Author of the book
+                <label className='input-label'>Author
                 </label>
-                <Select options={options()}
-                        onChange={(event) => event ? setBookAuthor(event.value) : setBookAuthor('')}
-                        onFocus={() =>setErrorMsgVisible(false)}/>
+                <Select
+                    isClearable={true}
+                    styles={customStyles}
+                    options={options()}
+                    onChange={(event) => event ? setBookAuthor(event.value) : setBookAuthor('')}
+                    onFocus={() =>setErrorMsgVisible(false)}/>
                 {errorMsgVisible && <label className={'errormsg'}>All fields are required!</label>}
-                <div className="button mt-3">
+                <div className="button mt-4">
                     <Button type="submit" className={'submit-btn'} onClick={handleSubmit}>Create</Button>
                 </div>
             </form>

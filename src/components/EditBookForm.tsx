@@ -58,12 +58,15 @@ const EditBooksForm: React.FC<EditBooksProps> = (props) => {
         e.preventDefault();
         if(!bookTitle){
             setErrorMsgTitleVisible(true) ;
+            return;
         }
         if(!bookAuthor){
             setErrorMsgAuthorVisible(true) ;
+            return;
         }
         if(!price){
-            setErrorMsgPriceVisible(true) ;
+            setErrorMsgPriceVisible(true);
+            return;
         }
         const bookToUpdate: IBook = {...props.editBook, title: bookTitle, price: price, author: bookAuthor}
         props.handleEditBook(bookToUpdate);

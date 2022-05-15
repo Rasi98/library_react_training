@@ -73,7 +73,7 @@ const Books: React.FC<BooksProps>= (props) => {
         }
         const editBook: IBook = books[editBookIndex];
         setEditBook(editBook);
-    }, [editBookIndex])
+    }, [books, editBookIndex])
 
     const handleEditBookForm = () => {
         setIsFormVisible(false);
@@ -90,6 +90,13 @@ const Books: React.FC<BooksProps>= (props) => {
         const bookList: IBook[] = books.slice();
         bookList.splice(editBookIndex, 1, book);
         setBooks(bookList);
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Book updated!',
+            showConfirmButton: false,
+            timer: 1200
+        })
     }
 
     return(

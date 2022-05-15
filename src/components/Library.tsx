@@ -12,9 +12,18 @@ const Library: React.FC = () => {
     const[editAuthorIndex,setEditAuthorIndex] = useState<number | null>(null);
     const [authorToUpdate,setAuthorToUpdate] = useState<IAuthor | null>(null);
 
+    useEffect(() => {
+        if (!editAuthorIndex || !authors){
+            return;
+        }
+        const authorToUpdate: IAuthor = authors[editAuthorIndex];
+        console.log("author:",authorToUpdate)
+        setAuthorToUpdate(authorToUpdate);
+    },[authors, editAuthorIndex])
+
     const handleEditAuthorIndex= (index:number) => {
         setEditAuthorIndex(index);
-        console.log(index)
+        console.log("index:",index)
     }
 
     const handleAuthorUpdate= (author:IAuthor) => {
@@ -24,25 +33,23 @@ const Library: React.FC = () => {
         const authorList: IAuthor[] = authors.slice();
         authorList.splice(editAuthorIndex,1,author);
         setAuthors(authorList);
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Author updated!',
+            showConfirmButton: false,
+            timer: 1200
+        })
     }
 
-    useEffect(() => {
-        if (!editAuthorIndex || !authors){
-            return;
-        }
-        const authorToUpdate: IAuthor = authors[editAuthorIndex];
-        setAuthorToUpdate(authorToUpdate);
-    },[editAuthorIndex])
 
-    const handleAddAuthor= (author: string) => {
+
+    const handleAddAuthor= (author: IAuthor) => {
         if(!author){
             return
         }
-        const newauthor= {
-            name:author
-        }
         const newauthors: IAuthor[] = authors ? authors.slice() : [];
-        newauthors.push(newauthor);
+        newauthors.push(author);
         setAuthors(newauthors);
         Swal.fire({
             position: 'top',

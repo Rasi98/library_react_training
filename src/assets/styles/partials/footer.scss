@@ -1,0 +1,21 @@
+.footer-comp {
+  padding: 0;
+  align-content: end;
+  position:fixed;
+  bottom:0;
+  width:100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //width: 200vh;
+
+  .footer-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+}

@@ -1,23 +1,27 @@
-import React, { FormEvent, useState} from "react";
+import React, {FormEvent, useEffect, useState} from "react";
 import Select from "react-select";
 import {Button, Col, Image, Row} from "react-bootstrap";
 import closeButton from "../assets/icons/closeButton.svg";
 import {IAuthor} from "../views/author";
+import {IBook} from "../views/Books"
 import NumberFormat from 'react-number-format';
 
-type CreateBooksProps = {
+type EditBooksProps = {
     onCloseButtonClick: ()=>void;
-    handleAddBooks: (book: string, price: string, author: string) => void;
     authors: IAuthor[] | null;
+    editBook: IBook | null;
+    handleEditBook: (book:IBook) => void;
 }
 
-const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
+const EditBooksForm: React.FC<EditBooksProps> = (props) => {
     const [bookTitle, setBookTitle] = useState<string>('');
     const [price, setPrice] = useState<string>('');
     const [bookAuthor, setBookAuthor] = useState<string>('');
     const [errorMsgAuthorVisible,setErrorMsgAuthorVisible] = useState(false);
     const [errorMsgTitleVisible,setErrorMsgTitleVisible] = useState(false);
     const [errorMsgPriceVisible,setErrorMsgPriceVisible] = useState(false);
+    const [defaultValue, setDefaultValue] = useState<{ label: string, value: string }>()
+
 
     const options = () => {
         const authors: {value:string,label:string}[] = [];
@@ -27,24 +31,6 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
             )
         }
         return authors;
-    }
-
-    const handleSubmit = (e:FormEvent) => {
-        e.preventDefault();
-        if (!bookAuthor) {
-            setErrorMsgAuthorVisible(true);
-        }
-        if (!price) {
-            setErrorMsgPriceVisible(true)
-        }
-        if (!bookTitle) {
-            setErrorMsgTitleVisible(true)
-        }
-        props.handleAddBooks(bookTitle,price, bookAuthor);
-        setBookTitle('');
-        setPrice('')
-        setBookAuthor('')
-
     }
 
     const customStyles = {
@@ -57,19 +43,46 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
         })
     };
 
+    useEffect(() => {
+        if(!props.editBook){
+            return;
+        }
+        setBookTitle(props.editBook.title)
+        setPrice(props.editBook.price)
+        setDefaultValue({
+            label: props.editBook ? props.editBook.author : '',
+            value: props.editBook ? props.editBook.author : ''
+        })
+    }, [props.editBook])
+
+    const onEditBook = (e:FormEvent) => {
+        e.preventDefault();
+        if(!bookTitle){
+            setErrorMsgTitleVisible(true) ;
+        }
+        if(!bookAuthor){
+            setErrorMsgAuthorVisible(true) ;
+        }
+        if(!price){
+            setErrorMsgPriceVisible(true) ;
+        }
+        const bookToUpdate: IBook = {...props.editBook, title: bookTitle, price: price, author: bookAuthor}
+        props.handleEditBook(bookToUpdate);
+    }
+
     return (
         <div className={'createBooksSection'}>
             <Row>
                 <Col className = {"title-col"}>
                     <h3 className={'title'}>
-                        Create Book
+                        Edit Book
                     </h3>
                     <div className={"IconClass-close"}>
                         <Image src={closeButton} onClick={props.onCloseButtonClick}/>
                     </div>
                 </Col>
             </Row>
-            <form className= 'booksForm'>
+            <form className= 'booksForm' onSubmit={onEditBook}>
                 <label className='input-label'>Title of the book
                 </label>
                 <input
@@ -103,15 +116,16 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
                     isClearable={true}
                     styles={customStyles}
                     options={options()}
+                    defaultValue={defaultValue}
                     onChange={(event) => event ? setBookAuthor(event.value) : setBookAuthor('')}
                     onFocus={() =>setErrorMsgAuthorVisible(false)}/>
                 {errorMsgAuthorVisible && <label className={'errormsg'}>Author field is required!</label>}
                 <div className="button mt-4">
-                    <Button type="submit" className={'submit-btn'} onClick={handleSubmit}>Create</Button>
+                    <Button type="submit" className={'submit-btn'}>Edit</Button>
                 </div>
             </form>
         </div>
     )
 }
 
-export default CreateBooksForm
+export default EditBooksForm

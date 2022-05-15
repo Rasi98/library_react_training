@@ -3,7 +3,6 @@
   align-content: end;
   position: fixed;
   bottom: 0;
-  width: 100%;
 }
 
 .footer {
@@ -16,6 +15,9 @@
   justify-content: center;
   align-items: center;
   color: white;
+}
+.footer .footer-text p {
+  text-align: center;
 }
 
 /*# sourceMappingURL=footer.css.map */

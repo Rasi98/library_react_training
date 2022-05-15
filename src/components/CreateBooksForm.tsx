@@ -57,7 +57,7 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
             height: '2.2em',
             minHeight: '2.2em',
             borderRadius:0,
-            borderColor:'#969696'
+            borderColor:'#969696',
         })
     };
 

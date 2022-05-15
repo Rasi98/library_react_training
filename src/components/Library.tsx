@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import Welcome from "./Welcome";
 import Authors from './Authors'
 import Books from "./books/Books";
+import Footer from "./Footer"
 import {IAuthor} from "../views/author";
 
 const Library: React.FC = () => {
@@ -98,6 +99,12 @@ const Library: React.FC = () => {
                     />
                 </Col>
             </Row>
+            <Row>
+                <div className={"footer-comp"}>
+                    < Footer />
+                </div>
+            </Row>
+
         </Container>
     )
 }

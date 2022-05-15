@@ -1,0 +1,23 @@
+.footer-comp {
+  padding: 0;
+  align-content: end;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .footer-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.footer .footer-text p {
+  text-align: center;
+}
+
+/*# sourceMappingURL=footer.css.map */

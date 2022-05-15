@@ -9,12 +9,11 @@ type EditAuthorProps={
     handleAuthorUpdate: (name:IAuthor) => void;
 }
 const EditAuthorForm: React.FC <EditAuthorProps>= (props) => {
-    const [authorName,setAuthorName] = useState('');
+    const [authorName,setAuthorName] = useState<string | null>(null);
     const [errorMsgVisible,setErrorMsgVisible] = useState(false);
 
     useEffect(() => {
         if (!props.authorToUpdate){
-            setAuthorName('');
             return;
         }
         setAuthorName(props.authorToUpdate.name);
@@ -22,11 +21,13 @@ const EditAuthorForm: React.FC <EditAuthorProps>= (props) => {
 
     const onEditClick= () => {
         if(!authorName){
+            setErrorMsgVisible(true)
             return;
         }
             const authorToUpdate: IAuthor = {...props.authorToUpdate,name:authorName};
             props.handleAuthorUpdate(authorToUpdate);
-            setAuthorName('')
+            setAuthorName(null)
+            props.closeIsEditFormVisible();
     }
 
     return(
@@ -47,7 +48,7 @@ const EditAuthorForm: React.FC <EditAuthorProps>= (props) => {
                     type="text"
                     className="form-control"
                     id="nameInput"
-                    value={authorName}
+                    value={authorName ? authorName : ''}
                     onChange={(e) => {setAuthorName(e.target.value)}}
                     onFocus={() =>setErrorMsgVisible(false)}
                 />

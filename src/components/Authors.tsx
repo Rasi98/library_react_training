@@ -9,7 +9,7 @@ import EditAuthor from './EditAuthorForm';
 import {IAuthor} from "../views/author";
 
 type AuthorsProps= {
-    handleAddAuthor: (author: string)=> void
+    handleAddAuthor: (author: IAuthor)=> void
     authors: IAuthor[] | null;
     handleDeleteAuthor: (index:number)=> void
     handleEditAuthorIndex: (index:number) => void

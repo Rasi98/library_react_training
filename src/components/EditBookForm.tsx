@@ -22,6 +22,17 @@ const EditBooksForm: React.FC<EditBooksProps> = (props) => {
     const [errorMsgPriceVisible,setErrorMsgPriceVisible] = useState(false);
     const [defaultValue, setDefaultValue] = useState<{ label: string, value: string }>()
 
+    useEffect(() => {
+        if(!props.editBook){
+            return;
+        }
+        setBookTitle(props.editBook.title)
+        setPrice(props.editBook.price)
+        setDefaultValue({
+            label: props.editBook ? props.editBook.author : '',
+            value: props.editBook ? props.editBook.author : ''
+        })
+    }, [props.editBook])
 
     const options = () => {
         const authors: {value:string,label:string}[] = [];
@@ -43,18 +54,6 @@ const EditBooksForm: React.FC<EditBooksProps> = (props) => {
         })
     };
 
-    useEffect(() => {
-        if(!props.editBook){
-            return;
-        }
-        setBookTitle(props.editBook.title)
-        setPrice(props.editBook.price)
-        setDefaultValue({
-            label: props.editBook ? props.editBook.author : '',
-            value: props.editBook ? props.editBook.author : ''
-        })
-    }, [props.editBook])
-
     const onEditBook = (e:FormEvent) => {
         e.preventDefault();
         if(!bookTitle){
@@ -68,6 +67,7 @@ const EditBooksForm: React.FC<EditBooksProps> = (props) => {
         }
         const bookToUpdate: IBook = {...props.editBook, title: bookTitle, price: price, author: bookAuthor}
         props.handleEditBook(bookToUpdate);
+        props.onCloseButtonClick();
     }
 
     return (
@@ -113,6 +113,7 @@ const EditBooksForm: React.FC<EditBooksProps> = (props) => {
                 <label className='input-label pt-1 pt-sm-2 pt-lg-3'>Author
                 </label>
                 <Select
+                    {...props}
                     isClearable={true}
                     styles={customStyles}
                     options={options()}

@@ -33,18 +33,22 @@ const CreateBooksForm: React.FC<CreateBooksProps> = (props) => {
         e.preventDefault();
         if (!bookAuthor) {
             setErrorMsgAuthorVisible(true);
+
         }
         if (!price) {
-            setErrorMsgPriceVisible(true)
+            setErrorMsgPriceVisible(true);
+
         }
         if (!bookTitle) {
             setErrorMsgTitleVisible(true)
-        }
-        props.handleAddBooks(bookTitle,price, bookAuthor);
-        setBookTitle('');
-        setPrice('')
-        setBookAuthor('')
 
+        }
+        if (bookAuthor && price && bookTitle) {
+            props.handleAddBooks(bookTitle, price, bookAuthor);
+            setBookTitle('');
+            setPrice('')
+            setBookAuthor('')
+        }
     }
 
     const customStyles = {

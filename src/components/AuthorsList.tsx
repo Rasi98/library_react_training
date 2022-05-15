@@ -6,6 +6,8 @@ import {IAuthor} from "../views/author";
 type AuthorListProps= {
     allAuthors:IAuthor[]| null
     deleteAuthor: (index:number)=> void
+    handleEditAuthorIndex: (index:number) => void
+    openIsEditFormVisible: () => void
 }
 const AuthorsList: React.FC<AuthorListProps>= (props)=> {
    const {allAuthors} = props
@@ -18,7 +20,9 @@ const AuthorsList: React.FC<AuthorListProps>= (props)=> {
             <li className={'author py-2'} key={index}>
                 <Author
                     deleteAuthor={props.deleteAuthor}
-                    num={index+1}
+                    handleEditAuthorIndex={props.handleEditAuthorIndex}
+                    openIsEditFormVisible={props.openIsEditFormVisible}
+                    num={index}
                     authorName={author}/>
             </li>);
     }
